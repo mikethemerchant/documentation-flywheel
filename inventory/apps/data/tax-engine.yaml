@@ -1,0 +1,31 @@
+# tax-engine.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Tax Engine
+purpose: >
+  Real-time sales and use tax determination for orders and invoices, plus
+  jurisdiction rate maintenance. Called synchronously by the ERP during order
+  entry and invoicing.
+vendor: Ledger Labs
+capability:
+  - Financial Management
+primary_users:
+  - Finance
+it_sme: Priya Raman
+it_technical_owner: Sofia Marchetti
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 2 - Important
+rto: 8 hours
+rpo: 1 hour
+recovery_owner: Sofia Marchetti
+
+notes: >
+  Tiered as Important but coupled to the ERP synchronously, so in practice its
+  availability is part of the ERP's. A Tier 2 dependency sitting inside a
+  Tier 1 transaction path is the kind of thing this inventory exists to make
+  visible; the tiers were assigned per-application and the coupling was not
+  considered.

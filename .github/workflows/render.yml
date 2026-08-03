@@ -1,0 +1,141 @@
+# .github/workflows/render.yml
+#
+# DATA-TO-DOCS — runs on merge to main. Renders every derived artifact from
+# source data, verifies the output is complete, and commits it back.
+#
+# NOTE ON THE COMMIT-BACK LOOP:
+# A push authenticated with the default GITHUB_TOKEN does NOT trigger further
+# workflow runs. That is documented GitHub behaviour and it means this job
+# cannot retrigger itself — no `[skip ci]` guard is required.
+#
+# The trap: if you swap in a PAT or GitHub App token (e.g. to get around a
+# branch protection rule), workflow triggering comes back ON and this becomes
+# an infinite render loop. If you must, add paths-ignore for every generated
+# path below AND keep the [skip ci] marker as a second belt.
+#
+# The `[skip ci]` text is kept in the message regardless — it costs nothing
+# and tells a human reader the commit was machine-authored.
+
+name: Render
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-main
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # rebase-retry below needs real history
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Install D2
+        env:
+          D2_VERSION: v0.7.1
+        run: |
+          curl -fsSL -o d2.tar.gz \
+            "https://github.com/terrastruct/d2/releases/download/${D2_VERSION}/d2-${D2_VERSION}-linux-amd64.tar.gz"
+          tar -xzf d2.tar.gz
+          sudo install "$(find . -type f -name d2 -perm -u+x | head -n1)" /usr/local/bin/d2
+          d2 --version
+
+      # MUST run before D2 — this step generates integration-landscape.d2
+      # from the integration records. That file is data, not artwork.
+      - name: Validate and render inventory
+        run: python automation/render-inventory.py
+
+      - name: Render D2 diagrams
+        run: |
+          # d2 will not create a missing output directory, and the folder is
+          # only in git because a rendered SVG is committed in it.
+          mkdir -p diagrams/rendered
+          for f in diagrams/source/*.d2; do
+            out="diagrams/rendered/$(basename "${f%.d2}").svg"
+            echo "  $f -> $out"
+            d2 "$f" "$out"
+          done
+
+      # The unglamorous step that makes everything above trustworthy.
+      # A half-rendered catalog is worse than a failed build.
+      - name: Verify rendered outputs
+        run: |
+          failed=0
+
+          echo "=== app YAML -> rendered MD coverage ==="
+          for y in inventory/apps/data/*.yaml; do
+            md="inventory/apps/$(basename "${y%.yaml}").md"
+            [ -f "$md" ] || { echo "::error::missing rendered page for $y"; failed=1; }
+          done
+
+          echo "=== D2 -> SVG coverage ==="
+          for d in diagrams/source/*.d2; do
+            svg="diagrams/rendered/$(basename "${d%.d2}").svg"
+            [ -f "$svg" ] || { echo "::error::missing SVG for $d"; failed=1; }
+          done
+
+          echo "=== empty file check ==="
+          while IFS= read -r f; do
+            echo "::error::empty rendered file: $f"; failed=1
+          done < <(find diagrams/rendered inventory/rendered inventory/apps \
+                        inventory/integrations -type f -empty)
+
+          echo "=== output exists at all ==="
+          svgs=$(find diagrams/rendered -name '*.svg' | wc -l)
+          mds=$(find inventory/rendered -name '*.md' | wc -l)
+          echo "  $svgs SVG, $mds rendered MD"
+          [ "$svgs" -gt 0 ] || [ "$mds" -gt 0 ] || { echo "::error::no outputs"; failed=1; }
+
+          [ "$failed" -eq 0 ] || { echo "::error::verification failed"; exit 1; }
+          echo "All checks passed."
+
+      # main can advance while this job runs (two merges in quick succession
+      # each trigger their own render). Rebase onto the latest origin/main and
+      # retry rather than failing the build; -X theirs keeps our fresh output.
+      - name: Commit rendered outputs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add diagrams/source/integration-landscape.d2 \
+                  diagrams/rendered inventory/rendered \
+                  inventory/apps inventory/integrations
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Auto-render diagrams and inventory [skip ci]"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if ! git rebase -X theirs origin/main; then
+              git rebase --abort || true
+              echo "::error::rebase onto origin/main failed"
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt (remote moved) — retrying."
+            sleep 5
+          done
+
+          echo "::error::could not push to main after 5 attempts"
+          exit 1

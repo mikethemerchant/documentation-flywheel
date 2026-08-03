@@ -1,0 +1,35 @@
+# identity-provider.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Identity Provider (SSO)
+purpose: >
+  Single sign-on, multi-factor authentication, and lifecycle provisioning for
+  every cloud application in the portfolio. Nothing else in the estate is a
+  dependency of this many systems.
+vendor: Northgate IT
+capability:
+  - Identity & Access Management
+primary_users:
+  - IT
+  - Enterprise
+it_sme: Ken Oyelaran
+it_technical_owner: Ken Oyelaran
+it_manager: Dana Whitfield
+it_team_accountable: Security
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 1 - Critical
+rto: 1 hour
+rpo: 15 minutes
+recovery_owner: Ken Oyelaran
+
+notes: >
+  Only one integration is recorded — the provisioning feed to the HCM — but
+  authentication dependencies run to almost every SaaS application here. Those
+  are real couplings and they are not in the graph, because authentication was
+  not treated as an integration when the records were written.
+
+  Whether an SSO trust belongs in the integration model is an open question
+  and a good candidate for a decision record. Until it is decided, the
+  landscape diagram understates this application's blast radius.

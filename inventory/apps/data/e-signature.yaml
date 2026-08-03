@@ -1,0 +1,34 @@
+# e-signature.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Electronic Signature
+purpose: >
+  Signature collection on customer contracts, credit applications, and vendor
+  agreements. Signed documents are downloaded and filed manually; nothing is
+  automated into another system.
+vendor: Quill
+capability:
+  - Document Signature
+primary_users:
+  - Sales
+  - Finance
+  - Enterprise
+it_sme: Unknown
+it_technical_owner: Unknown
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 3 - Standard
+rto: 72 hours
+recovery_owner: Unknown
+
+notes: >
+  Bought by sales operations, renewed on a departmental card, and in daily use
+  across three functions with no IT owner attached. Nothing is broken, which
+  is the reason it stayed invisible — this record exists because the inventory
+  asked who owned it and nobody could answer.
+
+  No RPO recorded: the vendor holds the signed documents and the retention
+  terms have not been read.

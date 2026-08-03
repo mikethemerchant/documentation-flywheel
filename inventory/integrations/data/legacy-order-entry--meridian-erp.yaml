@@ -1,0 +1,30 @@
+# legacy-order-entry--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+#
+# Read this one alongside legacy-order-entry.yaml. An application marked
+# Retiring, writing into the core system of record, by a manual path, with an
+# unknown DR impact and no owner to ask. Every field is honest and the
+# combination is the problem.
+
+name: Legacy Order Entry → Enterprise Resource Planning (ERP)
+source: legacy-order-entry
+target: meridian-erp
+direction: Inbound
+connection_type: Flat File (Manual)
+middleware: Manual
+
+dr_impact: Unknown
+failover_behavior: >
+  Not characterized. The file is produced and loaded by hand, so behaviour
+  during an outage depends entirely on what the person doing it decides to
+  do, and nobody has been asked.
+
+notes: >
+  Contract-pricing orders for a small number of customers, keyed in the legacy
+  system and loaded into the ERP as a flat file. Frequency is believed to be
+  weekly and has not been confirmed.
+
+  This is the record the DR posture view exists to surface: a write into the
+  core system of record, on a retiring application, with no owner, no
+  characterized failure mode, and no retirement date. A spreadsheet inventory
+  would show the application as Retiring and stop there.

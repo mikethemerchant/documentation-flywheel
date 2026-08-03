@@ -1,0 +1,60 @@
+# .github/workflows/validate.yml
+#
+# PR GATE — validates without writing anything.
+#
+# This is the workflow that makes the repo trustworthy: a record with an
+# unapproved vendor, an unknown owner, or malformed YAML fails HERE, before
+# merge, rather than reaching the published catalog. It is also the best
+# thing to demo — break a record on purpose and watch the build go red.
+
+name: Validate
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate inventory against schema
+        run: python automation/render-inventory.py --validate-only
+
+      # Pinned deliberately. D2 output is committed to the repo, so an
+      # unpinned upgrade would show up as a diff across every SVG at once.
+      - name: Install D2
+        env:
+          D2_VERSION: v0.7.1
+        run: |
+          curl -fsSL -o d2.tar.gz \
+            "https://github.com/terrastruct/d2/releases/download/${D2_VERSION}/d2-${D2_VERSION}-linux-amd64.tar.gz"
+          tar -xzf d2.tar.gz
+          sudo install "$(find . -type f -name d2 -perm -u+x | head -n1)" /usr/local/bin/d2
+          d2 --version
+
+      # Renders to a throwaway path purely to prove each source parses.
+      # (Newer D2 versions also support `d2 --check`; rendering works on all.)
+      - name: Parse all D2 sources
+        run: |
+          failed=0
+          for f in diagrams/source/*.d2; do
+            if d2 "$f" /tmp/check.svg >/dev/null 2>&1; then
+              echo "  ok    $f"
+            else
+              echo "::error file=$f::D2 source failed to parse"
+              failed=1
+            fi
+          done
+          exit $failed

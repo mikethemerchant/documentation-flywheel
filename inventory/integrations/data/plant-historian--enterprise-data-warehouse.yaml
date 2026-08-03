@@ -1,0 +1,20 @@
+# plant-historian--enterprise-data-warehouse.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Plant Historian → Enterprise Data Warehouse (EDW)
+source: plant-historian
+target: enterprise-data-warehouse
+direction: Outbound
+connection_type: Database Link
+middleware: Direct (none)
+
+dr_impact: Stoppable - no data loss
+failover_behavior: >
+  Scheduled pull of aggregated tag data. The historian retains its own
+  time-series locally, so a missed window is backfilled on the next run.
+
+notes: >
+  Safe only for as long as the historian's local retention outlasts the
+  outage, and nobody currently knows what that retention is set to — the
+  same gap recorded as an unknown SME on the historian record. The DR
+  classification here is an assumption dressed as a fact.

@@ -1,0 +1,29 @@
+# endpoint-management.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Endpoint Management
+purpose: >
+  Device enrolment, patching, software deployment, and remote support for
+  laptops and warehouse handhelds. The service desk's primary working tool.
+vendor: Northgate IT
+capability:
+  - Endpoint Management
+primary_users:
+  - IT
+it_sme: Alan Petrov
+it_technical_owner: Tom Bergstrom
+it_manager: Tom Bergstrom
+it_team_accountable: Infrastructure
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 8 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  The person who uses it daily and the person who owns the platform are
+  different people on purpose. Collapsing those into one field would lose the
+  distinction between "who do I call about a policy" and "who do I call when
+  the tenant is down".

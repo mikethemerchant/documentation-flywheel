@@ -1,0 +1,33 @@
+# payroll.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Payroll
+purpose: >
+  Payroll calculation, tax filing, and payment disbursement for salaried and
+  hourly staff. Consumes employee and time data from the HCM; posts summary
+  journals to finance by hand at period close.
+vendor: Beacon Payroll
+capability:
+  - Payroll
+primary_users:
+  - Human Resources
+  - Finance
+it_sme: Rachel Nkemdirim
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 24 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  RTO is stated as 24 hours, but the real constraint is the pay calendar
+  rather than the clock — an outage is survivable for days mid-period and
+  unsurvivable for hours during a run. Tiering does not capture that shape,
+  and a fixed RTO on a calendar-driven system is worth revisiting.
+
+  The journal post to finance is manual and has no integration record. That is
+  accurate, not an omission: nothing automated connects them.

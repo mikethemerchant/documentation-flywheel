@@ -1,0 +1,29 @@
+# expense-management.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Expense Management
+purpose: >
+  Employee expense capture, receipt handling, and approval routing. Approved
+  expenses are exported to the ERP for reimbursement through accounts payable.
+vendor: Halcyon Cloud
+capability:
+  - Expense Management
+primary_users:
+  - Finance
+  - Enterprise
+it_sme: Priya Raman
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 3 - Standard
+rto: 72 hours
+rpo: 24 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Shares the Expense Management capability with the Travel & Expense product
+  currently under evaluation. The capability map surfaces the pair; whether
+  that is a duplication or a deliberate replacement has not been decided, and
+  the evaluation started without the question being asked.

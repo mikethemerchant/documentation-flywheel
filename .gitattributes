@@ -1,0 +1,9 @@
+# Generated output is written by CI on Linux and by contributors on Windows.
+# Without this, the same render produces a different blob on each platform and
+# every merge shows a diff across files nobody touched — which would undermine
+# the one thing this repo claims: that nothing derived drifts.
+
+* text=auto eol=lf
+
+# Rendered SVG is generated output, not something to diff by hand.
+*.svg -text

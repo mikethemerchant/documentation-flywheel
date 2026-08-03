@@ -1,0 +1,20 @@
+# human-capital-management--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Human Capital Management (HCM) → Enterprise Resource Planning (ERP)
+source: human-capital-management
+target: meridian-erp
+direction: Inbound
+connection_type: API (REST)
+middleware: Integration Platform (iPaaS)
+
+dr_impact: Stoppable - queued, replays
+failover_behavior: >
+  Employee and cost-centre records are pushed through the integration
+  platform, which queues and replays. Changes made during an outage arrive
+  in order once the ERP is back.
+
+notes: >
+  Keeps the ERP's employee dimension aligned for labour costing and approval
+  routing. A terminated employee who does not propagate stays an approver in
+  the ERP, so a delay here is an access issue rather than a reporting one.

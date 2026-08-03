@@ -1,0 +1,38 @@
+# legacy-order-entry.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Legacy Order Entry
+purpose: >
+  In-house order capture application predating the current ERP. Retained for
+  a handful of contract-pricing customers whose terms were never migrated.
+  Scheduled for retirement with no date attached.
+vendor: Internal
+capability:
+  - Order Management
+primary_users:
+  - Sales
+it_sme: Unknown
+it_technical_owner: Unknown
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Retiring
+hosting: On-Prem
+
+criticality_tier: Tier 3 - Standard
+rto: Best effort
+rpo: Best effort
+recovery_owner: Unknown
+
+notes: >
+  Marked Retiring and still writing orders into the ERP through a manual flat
+  file that nobody has characterized. Retiring is a status, not a state: the
+  system is live, the flow is live, and the DR impact of that flow is
+  Unknown.
+
+  The original developer has left and no source repository has been located.
+  Retiring it needs the contract-pricing terms migrated first, which needs
+  somebody to read them out of this system, which needs an owner — and that
+  chain is why the date keeps moving.
+
+  This is the record to read first if you want to understand why the
+  inventory exists. Flagged in insights-surfaced.md.

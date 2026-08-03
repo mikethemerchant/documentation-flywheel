@@ -1,0 +1,21 @@
+# human-capital-management--payroll.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Human Capital Management (HCM) → Payroll
+source: human-capital-management
+target: payroll
+direction: Outbound
+connection_type: File Transfer (SFTP)
+middleware: Direct (none)
+
+dr_impact: Stoppable - no data loss
+failover_behavior: >
+  Employee, rate, and time changes move as a scheduled file drop. A missed
+  drop is re-sent; the HCM stays authoritative and the payroll run reads
+  whatever landed most recently.
+
+notes: >
+  Low risk on any day except the two before a pay run, when a missed file
+  means people are paid the wrong amount. The DR classification is honest at
+  the flow level and misleading at the calendar level — the same problem
+  recorded against the payroll application itself.

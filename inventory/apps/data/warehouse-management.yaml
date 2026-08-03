@@ -1,0 +1,30 @@
+# warehouse-management.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Warehouse Management (WMS)
+purpose: >
+  Receiving, put-away, picking, and shipping across the three distribution
+  centres. Holds the authoritative bin-level stock position; the ERP holds
+  the financial one, and the two reconcile continuously.
+vendor: Meridian Systems
+capability:
+  - Warehouse Operations
+  - Inventory Management
+primary_users:
+  - Supply Chain
+it_sme: Priya Raman
+it_technical_owner: Tom Bergstrom
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (Hosted)
+
+criticality_tier: Tier 1 - Critical
+rto: 4 hours
+rpo: 15 minutes
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Same vendor and same hosting tenancy as the ERP, which means a vendor-side
+  outage takes both out together. That correlation is not visible anywhere in
+  the DR plan and is worth a decision record.

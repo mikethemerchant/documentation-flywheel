@@ -1,0 +1,33 @@
+# business-intelligence.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Business Intelligence (BI)
+purpose: >
+  Dashboards and self-service reporting over the data warehouse. Operational
+  reporting stays in the source systems; this is where cross-system questions
+  get answered.
+vendor: Lumen Analytics
+capability:
+  - Analytics & Reporting
+primary_users:
+  - Finance
+  - Sales
+  - Supply Chain
+  - Enterprise
+it_sme: Sofia Marchetti
+it_technical_owner: Tom Bergstrom
+it_manager: Marcus Iwu
+it_team_accountable: Data & Integrations
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 3 - Standard
+rto: 72 hours
+rpo: 24 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Tier 3 by recovery priority, but the first thing anyone notices is missing.
+  That mismatch between criticality and visibility is normal and is exactly
+  what the tier is for — restoring dashboards ahead of order entry would be
+  the wrong call however loudly it is asked for.

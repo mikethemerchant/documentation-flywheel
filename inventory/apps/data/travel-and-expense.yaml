@@ -1,0 +1,28 @@
+# travel-and-expense.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Travel & Expense (T&E)
+purpose: >
+  Combined travel booking and expense capture, under evaluation as a possible
+  replacement for the standalone expense tool. No production data and no
+  integrations yet.
+vendor: Quill
+capability:
+  - Expense Management
+primary_users:
+  - Finance
+  - Enterprise
+it_sme: Marcus Iwu
+it_manager: Dana Whitfield
+it_team_accountable: Applications
+lifecycle_status: Evaluating
+hosting: TBD
+
+notes: >
+  Hosting is genuinely undecided rather than unrecorded — the vendor offers
+  both a shared and a dedicated tenancy and the choice sits with the
+  evaluation. TBD is the correct value here and should not be cleaned up.
+
+  No criticality tier or recovery target: an application in evaluation has
+  not been through tiering, and inventing one would make the DR view claim
+  more than anybody has actually decided.

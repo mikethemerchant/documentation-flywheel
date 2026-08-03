@@ -1,0 +1,213 @@
+# schema.yaml — controlled values for the application inventory
+#
+# Every enum field in an app or integration record must use a value defined
+# here. Adding a new vendor, person, or team means editing this file in the
+# same pull request. That friction is deliberate: it is what stops the owner
+# roster drifting into free text, and it is why an AI assistant drafting a
+# record cannot invent a person into the inventory.
+#
+# ALL DATA IN THIS REPOSITORY IS FICTIONAL. Northwind Traders does not exist.
+
+version: 1
+
+fields:
+
+  # ── Application fields ────────────────────────────────────────────────
+
+  vendor:
+    description: "Software vendor or provider"
+    required: false
+    values:
+      - Axiom Controls
+      - Beacon Payroll
+      - Conduit
+      - Halcyon Cloud
+      - Internal
+      - Ledger Labs
+      - Lumen Analytics
+      - Meridian Systems
+      - Northgate IT
+      - Quill
+
+  capability:
+    description: >
+      What business capability the application provides. Controlled, and
+      multi-valued because real systems cover more than one.
+
+      This is the field the capability map is built on, and it is the field
+      that answers "what do we already own that does this?" before somebody
+      buys a third tool. It only works as a controlled list: as free text,
+      two records describing the same capability in different words never
+      collide, and the overlap the question exists to find stays invisible.
+    required: true
+    multi: true
+    values:
+      - Analytics & Reporting
+      - Data Warehousing
+      - Document Signature
+      - EDI & Trading Partner Exchange
+      - Endpoint Management
+      - Expense Management
+      - Financial Management
+      - Human Resources Management
+      - Identity & Access Management
+      - Integration & Middleware
+      - Inventory Management
+      - Manufacturing Data Historian
+      - Order Management
+      - Payroll
+      - Procurement
+      - Sales & Customer Management
+      - Warehouse Operations
+
+  primary_users:
+    description: "Business groups that use the application"
+    required: true
+    multi: true
+    values:
+      - Enterprise
+      - Finance
+      - Human Resources
+      - Manufacturing
+      - Sales
+      - Supply Chain
+      - IT
+
+  it_sme:
+    description: >
+      Subject matter expert — the person to call. A REAL PERSON, never a team
+      name. Multiple names allowed when a role is genuinely shared; team-level
+      accountability belongs in it_team_accountable instead.
+    required: true
+    multi: true
+    values:
+      - Alan Petrov
+      - Dana Whitfield
+      - Ken Oyelaran
+      - Marcus Iwu
+      - Priya Raman
+      - Rachel Nkemdirim
+      - Sofia Marchetti
+      - Tom Bergstrom
+      - Unknown          # honest gap — surfaced by gap-analysis.py
+
+  it_technical_owner:
+    description: "Person accountable for the technical platform. A real person."
+    required: false
+    multi: true
+    values:
+      - Alan Petrov
+      - Dana Whitfield
+      - Ken Oyelaran
+      - Marcus Iwu
+      - Priya Raman
+      - Rachel Nkemdirim
+      - Sofia Marchetti
+      - Tom Bergstrom
+      - Unknown
+
+  it_manager:
+    description: "Manager of the accountable team. A real person."
+    required: false
+    values:
+      - Dana Whitfield
+      - Marcus Iwu
+      - Tom Bergstrom
+      - Unknown
+
+  it_team_accountable:
+    description: "Team-level accountability — the correct home for group names"
+    required: false
+    values:
+      - Applications
+      - Data & Integrations
+      - Infrastructure
+      - Security
+      - Service Desk
+
+  lifecycle_status:
+    description: "Where the application sits in its life"
+    required: true
+    values:
+      - Active
+      - Evaluating
+      - Retiring
+      - Retired
+
+  hosting:
+    description: "Where it runs"
+    required: false
+    values:
+      - Cloud (SaaS)
+      - Cloud (Hosted)
+      - On-Prem
+      - Hybrid
+      - Local Computer
+      - TBD             # honest gap
+
+  # ── Recovery / DR fields — these drive the dr-posture view ────────────
+
+  criticality_tier:
+    description: "Business criticality, drives recovery priority"
+    required: false
+    values:
+      - Tier 1 - Critical
+      - Tier 2 - Important
+      - Tier 3 - Standard
+
+  recovery_owner:
+    description: "Person who executes recovery for this application. A real person."
+    required: false
+    multi: true
+
+  # rto / rpo are free text (e.g. "4 hours", "24 hours", "Best effort")
+
+  # ── Integration fields ────────────────────────────────────────────────
+
+  direction:
+    description: >
+      Direction of data flow relative to the source system. The field that
+      makes "what writes INTO our ERP?" an answerable query — which is the
+      single best argument for a graph over a spreadsheet.
+    required: true
+    values:
+      - Outbound
+      - Inbound
+      - Bidirectional
+
+  connection_type:
+    description: "How the two systems actually talk"
+    required: false
+    values:
+      - API (REST)
+      - API (SOAP)
+      - Database Link
+      - File Transfer (SFTP)
+      - Flat File (Manual)
+      - Message Queue
+      - EDI
+
+  middleware:
+    description: "What sits in the middle, if anything"
+    required: false
+    values:
+      - Direct (none)
+      - Integration Platform (iPaaS)
+      - EDI Gateway
+      - Manual
+
+  dr_impact:
+    description: "What happens to this flow during a core-system outage"
+    required: false
+    values:
+      - Stoppable - no data loss
+      - Stoppable - queued, replays
+      - Stoppable - manual reconciliation
+      - Cannot stop - data loss risk
+      - Unknown         # honest gap
+
+# Free-text fields (no controlled values, validated only for type):
+#   apps:         name, purpose, rto, rpo, notes
+#   integrations: name, source, target, failover_behavior, notes
+# `source` and `target` must resolve to an existing app slug — the renderer
+# fails the build on a dangling reference, which is what keeps the graph honest.

@@ -1,0 +1,19 @@
+# meridian-erp--enterprise-data-warehouse.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Enterprise Resource Planning (ERP) → Enterprise Data Warehouse (EDW)
+source: meridian-erp
+target: enterprise-data-warehouse
+direction: Outbound
+connection_type: Database Link
+middleware: Direct (none)
+
+dr_impact: Stoppable - no data loss
+failover_behavior: >
+  Nightly extract against a read replica. A missed run is re-run the following
+  night with no loss, because the ERP remains the authoritative copy of
+  everything this flow moves.
+
+notes: >
+  Point-to-point rather than through the integration platform, for volume
+  reasons that predate the platform. Nobody has revisited the choice since.

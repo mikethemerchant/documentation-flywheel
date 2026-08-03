@@ -1,0 +1,20 @@
+# expense-management--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Expense Management → Enterprise Resource Planning (ERP)
+source: expense-management
+target: meridian-erp
+direction: Inbound
+connection_type: File Transfer (SFTP)
+middleware: Direct (none)
+
+dr_impact: Stoppable - manual reconciliation
+failover_behavior: >
+  Approved expenses are exported on a schedule for reimbursement through
+  accounts payable. A missed file is not re-sent automatically; finance
+  identifies the gap at period close and re-exports the range by hand.
+
+notes: >
+  Low volume and low urgency, which is why nobody has automated the retry.
+  The reconciliation is cheap here in a way it is not for the warehouse
+  queue, and both carry the same DR classification.

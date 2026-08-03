@@ -1,0 +1,26 @@
+# customer-relationship-mgmt--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+#
+# `direction` is stated relative to the core transactional system of record,
+# not to this record's own source field. Inbound means "writes into the ERP".
+# That framing is what makes "what writes into our core system?" answerable
+# from the data rather than from somebody's memory.
+
+name: Customer Relationship Management (CRM) → Enterprise Resource Planning (ERP)
+source: customer-relationship-mgmt
+target: meridian-erp
+direction: Inbound
+connection_type: API (REST)
+middleware: Integration Platform (iPaaS)
+
+dr_impact: Stoppable - queued, replays
+failover_behavior: >
+  Accepted quotes are posted through the integration platform, which holds
+  them in a durable queue and replays on recovery. Sales can keep quoting
+  during an ERP outage; orders land late rather than not at all.
+
+notes: >
+  Quote-to-order only. Customer master data flows the other way by a nightly
+  manual export that has no record here, because nothing automated performs
+  it. That asymmetry is real and worth fixing before anyone treats this
+  diagram as complete.

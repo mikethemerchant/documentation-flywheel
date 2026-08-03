@@ -1,0 +1,42 @@
+# meridian-erp.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+#
+# The slug keeps its original vendor-flavoured form while the display name has
+# moved on. That is deliberate: slugs are internal identifiers referenced by
+# every integration record, and renaming one to match a reworded display name
+# breaks the graph silently.
+
+name: Enterprise Resource Planning (ERP)
+purpose: >
+  Core transactional system of record — order to cash, procure to pay,
+  finance, and inventory. Every other business application either feeds it
+  or reads from it.
+vendor: Meridian Systems
+capability:
+  - Financial Management
+  - Order Management
+  - Inventory Management
+  - Procurement
+primary_users:
+  - Finance
+  - Supply Chain
+  - Sales
+it_sme: Priya Raman
+it_technical_owner: Tom Bergstrom
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (Hosted)
+
+criticality_tier: Tier 1 - Critical
+rto: 4 hours
+rpo: 15 minutes
+recovery_owner: Tom Bergstrom
+
+notes: >
+  The most connected record in the portfolio. See the DR posture view for what
+  has to be stopped, drained, or accepted as lost during a failover.
+
+  2026-03-04 (integration review): the manual order-entry path from the
+  retiring legacy system is still active and is not characterized — flagged
+  in insights-surfaced.md.

@@ -1,0 +1,24 @@
+# identity-provider--human-capital-management.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Identity Provider (SSO) → Human Capital Management (HCM)
+source: identity-provider
+target: human-capital-management
+direction: Outbound
+connection_type: API (REST)
+middleware: Direct (none)
+
+dr_impact: Unknown
+failover_behavior: >
+  Not characterized. Provisioning and deprovisioning calls are made as
+  identity events occur; whether missed events are retried, replayed, or
+  dropped depends on vendor behaviour that has not been tested.
+
+notes: >
+  Recorded during the identity review because it is the one directional feed
+  anybody could name. The far larger dependency — every SaaS application in
+  the portfolio authenticating through this provider — is not modelled here
+  at all.
+
+  Untested is not the same as unknown, but the record cannot tell them apart
+  and the honest value is Unknown either way. Testing it is an open action.

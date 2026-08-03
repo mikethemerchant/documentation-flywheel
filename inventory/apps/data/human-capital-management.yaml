@@ -1,0 +1,30 @@
+# human-capital-management.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Human Capital Management (HCM)
+purpose: >
+  System of record for people — hires, transfers, terminations, org structure,
+  and benefits enrolment. Employee identity originates here and propagates to
+  payroll, the ERP, and the identity provider.
+vendor: Halcyon Cloud
+capability:
+  - Human Resources Management
+primary_users:
+  - Human Resources
+  - Enterprise
+it_sme: Rachel Nkemdirim
+it_technical_owner: Ken Oyelaran
+it_manager: Marcus Iwu
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 8 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Termination events here drive access revocation downstream, which is why the
+  security lead holds the technical ownership rather than the applications
+  team. A delay in this feed is a security finding, not a data-quality one.

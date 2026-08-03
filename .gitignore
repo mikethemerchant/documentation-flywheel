@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local AI assistant state — session-scoped, not repository context.
+# Continuity lives in meta/, which is committed.
+.claude/
+
+# Local environment
+.env

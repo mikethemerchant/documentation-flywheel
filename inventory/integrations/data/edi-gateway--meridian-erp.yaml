@@ -1,0 +1,21 @@
+# edi-gateway--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: EDI Gateway → Enterprise Resource Planning (ERP)
+source: edi-gateway
+target: meridian-erp
+direction: Inbound
+connection_type: EDI
+middleware: EDI Gateway
+
+dr_impact: Cannot stop - data loss risk
+failover_behavior: >
+  Trading partners transmit on their own schedule and do not retry on a
+  rejected connection. Documents arriving during an outage are lost at the
+  partner end, not queued locally.
+
+notes: >
+  Purchase orders, acknowledgements, and invoices across the trading partner
+  base. The highest-risk inbound path in the portfolio and the reason the DR
+  posture view exists — every other inbound flow can be allowed to back up,
+  and this one cannot.

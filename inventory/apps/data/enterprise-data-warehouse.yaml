@@ -1,0 +1,32 @@
+# enterprise-data-warehouse.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Enterprise Data Warehouse (EDW)
+purpose: >
+  Consolidates transactional data from the ERP and process data from the plant
+  historian into a reporting model. Read-only downstream of everything; it
+  writes to nothing operational.
+vendor: Lumen Analytics
+capability:
+  - Data Warehousing
+primary_users:
+  - Finance
+  - Supply Chain
+  - Manufacturing
+it_sme: Sofia Marchetti
+it_technical_owner: Tom Bergstrom
+it_manager: Marcus Iwu
+it_team_accountable: Data & Integrations
+lifecycle_status: Active
+hosting: Cloud (Hosted)
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 24 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Every flow into and out of this system is stoppable with no data loss,
+  because the sources remain authoritative and the loads are re-runnable.
+  That property is why it sits at Tier 2 despite feeding every executive
+  report in the business.

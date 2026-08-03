@@ -1,0 +1,24 @@
+# meridian-erp--tax-engine.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Enterprise Resource Planning (ERP) ↔ Tax Engine
+source: meridian-erp
+target: tax-engine
+direction: Bidirectional
+connection_type: API (SOAP)
+middleware: Direct (none)
+
+dr_impact: Cannot stop - data loss risk
+failover_behavior: >
+  Synchronous call during order entry and invoicing. If the tax engine is
+  unreachable the ERP will not complete the document, so the flow cannot be
+  stopped without stopping order entry with it.
+
+notes: >
+  The dependency runs the opposite way to what the diagram suggests: the ERP
+  is the caller, but it is the ERP that stops when the tax engine is down.
+  Recorded as Bidirectional because rate and jurisdiction updates come back
+  the other way on a separate schedule.
+
+  This flow is the argument for tiering by transaction path rather than by
+  application — a Tier 2 system sitting inside a Tier 1 path.

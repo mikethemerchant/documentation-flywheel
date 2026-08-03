@@ -1,0 +1,28 @@
+# customer-relationship-mgmt.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Customer Relationship Management (CRM)
+purpose: >
+  Accounts, contacts, opportunities, and quoting for the outside sales team.
+  Quotes accepted here become sales orders in the ERP.
+vendor: Halcyon Cloud
+capability:
+  - Sales & Customer Management
+primary_users:
+  - Sales
+it_sme: Marcus Iwu
+it_manager: Dana Whitfield
+it_team_accountable: Applications
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 4 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  No technical owner recorded, and correctly so — pure SaaS with no
+  infrastructure to own. The optional field is left off rather than filled
+  with a placeholder, because a blank reads as "not applicable" and a
+  placeholder reads as "answered".

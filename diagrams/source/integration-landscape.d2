@@ -1,0 +1,165 @@
+# GENERATED FILE — DO NOT EDIT.
+# Written by automation/render-inventory.py from the integration records
+# in inventory/integrations/data/. This diagram is derived from data, not
+# drawn: add an integration record and the picture redraws itself.
+# Every other .d2 file in this folder is hand-authored.
+
+direction: down
+
+legend: |md
+  ### Integration landscape
+
+  Generated from 12 integration
+  records, grouped by accountable team.
+
+  - **Red edge** — writes into the core
+    system of record
+  - **Dashed edge** — no middleware in the
+    path to hold a message
+  - **Dashed box** — retiring or retired
+  - **?** — DR impact not characterized
+|
+
+applications: "Applications" {
+  style.fill: transparent
+  customer_relationship_mgmt: "Customer Relationship Management (CRM)" {
+    shape: rectangle
+  }
+  e_signature: "Electronic Signature" {
+    shape: rectangle
+  }
+  meridian_erp: "Enterprise Resource Planning (ERP)" {
+    shape: rectangle
+    style.bold: true
+    style.stroke-width: 3
+  }
+  expense_management: "Expense Management" {
+    shape: rectangle
+  }
+  human_capital_management: "Human Capital Management (HCM)" {
+    shape: rectangle
+  }
+  legacy_order_entry: "Legacy Order Entry\n[Retiring]" {
+    shape: rectangle
+    style.stroke-dash: 4
+    style.opacity: 0.7
+  }
+  payroll: "Payroll" {
+    shape: rectangle
+  }
+  tax_engine: "Tax Engine" {
+    shape: rectangle
+  }
+  travel_and_expense: "Travel & Expense (T&E)\n[Evaluating]" {
+    shape: rectangle
+  }
+  warehouse_management: "Warehouse Management (WMS)" {
+    shape: rectangle
+  }
+}
+
+data_integrations: "Data & Integrations" {
+  style.fill: transparent
+  business_intelligence: "Business Intelligence (BI)" {
+    shape: rectangle
+  }
+  edi_gateway: "EDI Gateway" {
+    shape: rectangle
+  }
+  enterprise_data_warehouse: "Enterprise Data Warehouse (EDW)" {
+    shape: rectangle
+  }
+  integration_platform: "Integration Platform (iPaaS)" {
+    shape: rectangle
+  }
+}
+
+infrastructure: "Infrastructure" {
+  style.fill: transparent
+  endpoint_management: "Endpoint Management" {
+    shape: rectangle
+  }
+  plant_historian: "Plant Historian" {
+    shape: rectangle
+  }
+}
+
+security: "Security" {
+  style.fill: transparent
+  identity_provider: "Identity Provider (SSO)" {
+    shape: rectangle
+  }
+}
+
+# ── Flows ────────────────────────────────────────────────
+applications.customer_relationship_mgmt -> applications.meridian_erp: "API (REST)" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+}
+data_integrations.edi_gateway -> applications.meridian_erp: "EDI" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+}
+data_integrations.enterprise_data_warehouse -> data_integrations.business_intelligence: "Database Link" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+applications.meridian_erp -> data_integrations.enterprise_data_warehouse: "Database Link" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+applications.meridian_erp <-> applications.tax_engine: "API (SOAP)" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+applications.expense_management -> applications.meridian_erp: "File Transfer (SFTP)" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+  style.stroke-dash: 3
+}
+applications.human_capital_management -> applications.meridian_erp: "API (REST)" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+}
+applications.human_capital_management -> applications.payroll: "File Transfer (SFTP)" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+security.identity_provider -> applications.human_capital_management: "API (REST)" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+  target-arrowhead.label: "?"
+}
+applications.legacy_order_entry -> applications.meridian_erp: "Flat File (Manual)" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+  style.stroke-dash: 3
+  target-arrowhead.label: "?"
+}
+infrastructure.plant_historian -> data_integrations.enterprise_data_warehouse: "Database Link" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
+}
+applications.warehouse_management <-> applications.meridian_erp: "Message Queue" {
+  style.stroke: "#b3352b"
+  style.stroke-width: 3
+  style.bold: true
+  style.stroke-dash: 3
+}
+
+# Notes (kept as comments — tooltips do not survive markdown renderers)
+#   Core system of record: Enterprise Resource Planning (ERP) (meridian-erp) — derived as
+#   the application the most other systems write into.
+#   A '?' on an arrowhead means the DR impact of that flow is not known.
+#   Dashed node border means the application is Retiring or Retired.

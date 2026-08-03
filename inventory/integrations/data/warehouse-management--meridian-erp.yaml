@@ -1,0 +1,21 @@
+# warehouse-management--meridian-erp.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Warehouse Management (WMS) ↔ Enterprise Resource Planning (ERP)
+source: warehouse-management
+target: meridian-erp
+direction: Bidirectional
+connection_type: Message Queue
+middleware: Direct (none)
+
+dr_impact: Stoppable - manual reconciliation
+failover_behavior: >
+  Orders flow out to the warehouse and confirmations flow back over a durable
+  queue. The warehouse keeps picking against what it already holds, so on
+  recovery the two stock positions have diverged and are reconciled by hand
+  before the queue is drained.
+
+notes: >
+  Classified stoppable, but stoppable at a cost — the reconciliation is a
+  half-day of counting, not a button. "Stoppable" and "cheap to stop" are not
+  the same property and the schema only records the first.

@@ -1,0 +1,35 @@
+# plant-historian.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Plant Historian
+purpose: >
+  Time-series capture of line and machine telemetry at the two manufacturing
+  sites. Feeds throughput and downtime reporting into the data warehouse.
+vendor: Axiom Controls
+capability:
+  - Manufacturing Data Historian
+primary_users:
+  - Manufacturing
+it_sme: Unknown
+it_technical_owner: Tom Bergstrom
+it_manager: Tom Bergstrom
+it_team_accountable: Infrastructure
+lifecycle_status: Active
+hosting: TBD
+
+criticality_tier: Tier 2 - Important
+rto: 24 hours
+rpo: 4 hours
+recovery_owner: Tom Bergstrom
+
+notes: >
+  Infrastructure keeps the server patched and backed up; nobody in IT can
+  explain the tag configuration, the retention policy, or which of the
+  downstream reports depend on which tags. The platform has an owner and the
+  application does not, and the record shows both — which is the whole point
+  of keeping those two fields apart.
+
+  Hosting is TBD because it is contested rather than unknown: it was
+  commissioned by the controls integrator and it is not settled whether the
+  box sits inside the plant network boundary or the corporate one. That
+  answer changes who is accountable for patching it.

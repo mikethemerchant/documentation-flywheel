@@ -1,0 +1,35 @@
+# integration-platform.yaml — application inventory record
+# Validated against ../../schema.yaml on every pull request.
+
+name: Integration Platform (iPaaS)
+purpose: >
+  Hosts the managed API integrations between cloud applications and the ERP.
+  Owns retry, queueing, and replay for every flow that runs through it, which
+  is what makes those flows stoppable during a core-system outage.
+vendor: Conduit
+capability:
+  - Integration & Middleware
+primary_users:
+  - IT
+it_sme: Sofia Marchetti
+it_technical_owner: Sofia Marchetti
+it_manager: Marcus Iwu
+it_team_accountable: Data & Integrations
+lifecycle_status: Active
+hosting: Cloud (SaaS)
+
+criticality_tier: Tier 1 - Critical
+rto: 4 hours
+rpo: 1 hour
+recovery_owner: Sofia Marchetti
+
+notes: >
+  Appears as `middleware` on other integration records but has no integration
+  records of its own, so the gap report lists it as unconnected. That is a
+  true statement about the data and a false impression about the system —
+  middleware is the path, not an endpoint. Worth a note in any walkthrough of
+  the gap report, and an argument for modelling middleware as a first-class
+  node one day.
+
+  Sole SME and sole technical owner are the same person, as on the EDI
+  gateway. Flagged in insights-surfaced.md.

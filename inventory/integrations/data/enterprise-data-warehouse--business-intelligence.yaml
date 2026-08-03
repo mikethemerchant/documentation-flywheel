@@ -1,0 +1,20 @@
+# enterprise-data-warehouse--business-intelligence.yaml — integration record
+# Slug convention: <source-slug>--<target-slug>
+
+name: Enterprise Data Warehouse (EDW) → Business Intelligence (BI)
+source: enterprise-data-warehouse
+target: business-intelligence
+direction: Outbound
+connection_type: Database Link
+middleware: Direct (none)
+
+dr_impact: Stoppable - no data loss
+failover_behavior: >
+  Dashboards read live from the warehouse. During an outage they serve the
+  last cached result and carry a staleness indicator; nothing is written and
+  nothing is lost.
+
+notes: >
+  Same vendor at both ends, so this is closer to a product feature than an
+  integration. It is recorded anyway — leaving it out would make the landscape
+  diagram imply the warehouse feeds nothing.
