@@ -101,16 +101,17 @@ python automation/gap-analysis.py                       # what's still unknown
 Diagrams need [D2](https://d2lang.com):
 
 ```bash
-d2 --salt documentation-flywheel \
-   diagrams/source/integration-landscape.d2 \
-   diagrams/rendered/integration-landscape.svg
+python automation/render-diagrams.py            # render every .d2 to SVG
+python automation/render-diagrams.py --check    # parse only, write nothing
 ```
 
-`--salt` pins the CSS class name D2 generates to scope each SVG. Without it the
-class name is derived per-platform, so the same source rendered on Windows and
-on Linux produces two SVGs that are visually identical and textually different —
-and CI would commit that difference back on every push. Use the same salt
-locally as the pipeline does, or your render will look like a change.
+That wrapper exists for one reason: D2 scopes each SVG's CSS with a generated
+class name that is derived per-platform, so rendering the same source on
+Windows and on Linux gives you two files with identical geometry and different
+class names. Since the pipeline commits rendered output back, calling `d2`
+directly means every push rewrites a diagram nobody edited. The script pins
+that id to the diagram's filename instead. Use it rather than `d2` by hand, or
+your render will look like a change.
 
 CI does all of this on every push. No secrets, no external services, no accounts — clone it and it works.
 

@@ -89,11 +89,13 @@ The single most important distinction in the repo. Editing a generated file wast
 ## Diagrams
 
 - Author in D2 in `diagrams/source/`; the pipeline renders SVG on merge
-- **Always render with `--salt documentation-flywheel`.** D2 scopes each SVG's
-  CSS with a generated class name that is otherwise derived per-platform, so an
-  unsalted local render differs from the pipeline's in class names while being
-  visually identical. The salt must never change — changing it rewrites every
-  SVG in one commit.
+- **Render with `python automation/render-diagrams.py`, never with `d2`
+  directly.** D2 scopes each SVG's CSS with a generated class name derived
+  per-platform, so a bare `d2` render on Windows and one on Linux differ in
+  class names while being pixel-identical. Because the pipeline commits
+  rendered output back, that difference becomes an auto-render commit on every
+  push. The script pins the id to the diagram's filename. (`--salt` does not
+  solve this — it changes the id without making it platform-independent.)
 - Embed rendered SVGs with relative paths
 - **Avoid tooltips and animations** — many markdown renderers sanitize them away. Put context in a notes section in the diagram source instead.
 - Every `.d2` must produce an `.svg`; the pipeline fails the build if one doesn't
