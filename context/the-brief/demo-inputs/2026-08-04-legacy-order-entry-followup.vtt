@@ -1,0 +1,125 @@
+WEBVTT
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/1-0
+00:00:02.200 --> 00:00:07.543
+<v Marcus Iwu>You said you'd found out who does the legacy file.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/2-0
+00:00:08.743 --> 00:00:12.343
+<v Priya Raman>I asked around. It's Dermot Walsh.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/3-0
+00:00:12.423 --> 00:00:13.882
+<v Marcus Iwu>Order management?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/4-0
+00:00:14.282 --> 00:00:19.181
+<v Priya Raman>Order management. He's been doing it about four years.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/5-0
+00:00:19.281 --> 00:00:21.646
+<v Marcus Iwu>Nobody knew that.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/6-0
+00:00:21.696 --> 00:00:31.810
+<v Priya Raman>Nobody asked. He's not IT, so he was never going to turn up in anything you were looking at.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/7-0
+00:00:31.860 --> 00:00:37.609
+<v Marcus Iwu>Did you ask him what happens when the ERP is down?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/8-0
+00:00:43.109 --> 00:00:46.845
+<v Priya Raman>I did, actually. He holds it.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/9-0
+00:00:46.895 --> 00:00:49.357
+<v Marcus Iwu>Holds it how?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/10-0
+00:00:49.437 --> 00:00:59.239
+<v Priya Raman>He generates the file, and if the load fails he just leaves it and does it the next morning.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/11-0
+00:01:02.039 --> 00:01:03.958
+<v Marcus Iwu>Does anything break?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/12-0
+00:01:13.458 --> 00:01:21.664
+<v Priya Raman>The orders land a day late. He says he's had to do it maybe three times.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/13-0
+00:01:24.464 --> 00:01:26.696
+<v Marcus Iwu>And nobody downstream notices?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/14-0
+00:01:26.896 --> 00:01:36.340
+<v Priya Raman>He notices. He rings the customer if it's urgent. It's completely manual and it works because it's him.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/15-0
+00:01:36.540 --> 00:01:41.131
+<v Marcus Iwu>Which is the whole problem in one sentence.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/16-0
+00:01:54.131 --> 00:01:56.319
+<v Priya Raman>It is, yes.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/17-0
+00:01:57.919 --> 00:02:05.077
+<v Marcus Iwu>So the failover behaviour is — he holds the file and reloads it manually.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/18-0
+00:02:05.177 --> 00:02:10.815
+<v Priya Raman>That's it. There's no automation to characterise. It's a person deciding.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/19-0
+00:02:11.115 --> 00:02:20.277
+<v Marcus Iwu>That's still a hundred times better than unknown. Can I put him on the record as the SME?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/20-0
+00:02:20.677 --> 00:02:29.955
+<v Priya Raman>He's the only person who understands it, so I'd say yes. He'd probably be surprised to hear it.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/21-0
+00:02:34.455 --> 00:02:42.452
+<v Marcus Iwu>He's not on our roster, so that's a schema change as well as a record change.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/22-0
+00:02:45.252 --> 00:02:48.198
+<v Priya Raman>Is that a problem?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/23-0
+00:02:48.278 --> 00:02:56.848
+<v Marcus Iwu>No, it's the point. It means somebody has to approve adding him rather than it just appearing.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/24-0
+00:02:57.148 --> 00:03:00.924
+<v Marcus Iwu>Did the pricing terms come up?</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/25-0
+00:03:01.124 --> 00:03:08.630
+<v Priya Raman>I asked. He knows the terms exist. He doesn't know who owns them commercially.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/26-0
+00:03:15.630 --> 00:03:19.015
+<v Marcus Iwu>So that one's still open.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/27-0
+00:03:21.815 --> 00:03:23.714
+<v Priya Raman>Still open.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/28-0
+00:03:28.214 --> 00:03:33.086
+<v Marcus Iwu>And still nobody will give me a retirement date.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/29-0
+00:03:33.186 --> 00:03:40.540
+<v Priya Raman>You won't get one until somebody costs the pricing move. That's the whole blocker.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/30-0
+00:03:40.940 --> 00:03:47.638
+<v Marcus Iwu>Right. Thanks — that's two things closed and the same one still stuck.</v>
+
+c58b0e37-9a41-4d2c-b673-45f1e8d07a92/31-0
+00:03:57.138 --> 00:04:00.459
+<v Priya Raman>That's better than last time.</v>

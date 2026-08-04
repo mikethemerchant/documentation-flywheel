@@ -1,0 +1,161 @@
+WEBVTT
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/1-0
+00:00:01.800 --> 00:00:10.024
+<v Marcus Iwu>Have you got ten minutes? I've got two things off the back of the integration review.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/2-0
+00:00:12.824 --> 00:00:17.727
+<v Alan Petrov>Go on, I'm just clearing the overnight queue.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/3-0
+00:00:18.127 --> 00:00:24.604
+<v Marcus Iwu>Recording this one as well if that's alright, it saves me writing.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/4-0
+00:00:31.604 --> 00:00:33.775
+<v Alan Petrov>Fine by me.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/5-0
+00:00:34.175 --> 00:00:38.966
+<v Marcus Iwu>Electronic signature. You flagged it originally, didn't you?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/6-0
+00:00:39.016 --> 00:00:48.989
+<v Alan Petrov>I raised a ticket about it. I couldn't route it, so it sat with me for about a week.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/7-0
+00:00:49.039 --> 00:00:51.595
+<v Marcus Iwu>What was the ticket?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/8-0
+00:00:52.095 --> 00:00:58.423
+<v Alan Petrov>Someone in HR couldn't get a document to send. Standard stuff.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/9-0
+00:00:58.503 --> 00:01:08.460
+<v Alan Petrov>Except when I went to assign it I couldn't find an owner, and it turned out we don't have one.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/10-0
+00:01:08.560 --> 00:01:10.861
+<v Marcus Iwu>So who administers it?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/11-0
+00:01:10.961 --> 00:01:15.893
+<v Alan Petrov>Somebody in contracts. That's as close as I've got.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/12-0
+00:01:22.893 --> 00:01:26.247
+<v Marcus Iwu>You don't have a name?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/13-0
+00:01:27.847 --> 00:01:40.847
+<v Alan Petrov>I've got a name on the ticket of the person who eventually fixed it, but I don't know if that's the admin or just someone who knew a workaround.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/14-0
+00:01:41.047 --> 00:01:43.837
+<v Marcus Iwu>Can you find out?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/15-0
+00:01:44.337 --> 00:01:54.605
+<v Alan Petrov>I can pull the ticket history and see who resolves them. Give me a week, it's not a five-minute job.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/16-0
+00:01:54.655 --> 00:02:02.673
+<v Marcus Iwu>Do that. That's the actual blocker on the record — everything else about it we know.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/17-0
+00:02:03.173 --> 00:02:08.786
+<v Alan Petrov>It's not the only one like that, by the way.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/18-0
+00:02:09.686 --> 00:02:11.086
+<v Marcus Iwu>Go on.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/19-0
+00:02:11.166 --> 00:02:20.694
+<v Alan Petrov>There's a thing the DCs use for carrier rates. I get two or three tickets a month about it.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/20-0
+00:02:20.744 --> 00:02:22.959
+<v Marcus Iwu>What is it?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/21-0
+00:02:23.859 --> 00:02:32.126
+<v Alan Petrov>I genuinely don't know. It might be part of the warehouse system, it might be separate.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/22-0
+00:02:32.226 --> 00:02:39.910
+<v Alan Petrov>The screenshots don't look like the WMS but I'm not confident enough to say that.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/23-0
+00:02:40.410 --> 00:02:43.653
+<v Marcus Iwu>Who do you route those to?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/24-0
+00:02:43.803 --> 00:02:51.571
+<v Alan Petrov>Priya, usually, because it's warehouse-adjacent. She sorts them out but I don't think it's hers.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/25-0
+00:02:57.071 --> 00:02:59.964
+<v Marcus Iwu>Have you asked her?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/26-0
+00:03:02.764 --> 00:03:10.224
+<v Alan Petrov>I've asked her what it is. She said, and I'm quoting, it's the rate thing.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/27-0
+00:03:10.724 --> 00:03:12.991
+<v Marcus Iwu>That's not enormously helpful.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/28-0
+00:03:13.391 --> 00:03:18.317
+<v Alan Petrov>No. But she fixes them, so I stopped asking.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/29-0
+00:03:22.817 --> 00:03:29.739
+<v Marcus Iwu>That's — okay, that's a good example of the thing I keep hitting.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/30-0
+00:03:29.789 --> 00:03:37.280
+<v Marcus Iwu>It works, so nobody looks at it, so we don't know what it is.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/31-0
+00:03:37.360 --> 00:03:41.135
+<v Alan Petrov>It works until whoever's fixing it stops.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/32-0
+00:03:41.285 --> 00:03:45.015
+<v Marcus Iwu>Right. Is it on the inventory?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/33-0
+00:03:45.315 --> 00:03:55.452
+<v Alan Petrov>Not under any name I'd recognise. But if it's a module of something else it wouldn't be, would it.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/34-0
+00:03:55.952 --> 00:04:05.063
+<v Marcus Iwu>No, it wouldn't. That's the bit I need to establish before I can do anything with it.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/35-0
+00:04:06.263 --> 00:04:14.230
+<v Alan Petrov>I can send you the last few tickets. That'd tell you more than I can.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/36-0
+00:04:14.380 --> 00:04:18.024
+<v Marcus Iwu>Please. Even the screenshots would help.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/37-0
+00:04:19.224 --> 00:04:24.291
+<v Marcus Iwu>Anything else in the queue that you can't route?</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/38-0
+00:04:24.591 --> 00:04:28.041
+<v Alan Petrov>Not currently. That's the two.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/39-0
+00:04:30.841 --> 00:04:33.223
+<v Marcus Iwu>That's plenty. Thanks Alan.</v>
+
+d4f9a2c1-7b60-4e88-b512-3a9c0d6e41b7/40-0
+00:04:33.423 --> 00:04:35.262
+<v Alan Petrov>No problem.</v>

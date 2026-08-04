@@ -68,11 +68,38 @@ No databases, no external services, no secrets. Clone and it runs.
 - [x] Inventory schema and demo dataset
 - [x] Validation and render workflows
 - [x] Insights log with worked examples — `inventory/insights-surfaced.md`
-- [ ] Example transcripts and their summaries — the flywheel's input side is
-      described but not yet demonstrated, which is the largest remaining gap
-- [ ] `templates/` — a prompt per recurring job, referenced by the README
-- [ ] `decisions/` — the open questions the dataset raises are recorded as
-      insights but not yet as decision records
+- [x] `context/` — the organization, the cast and how each of them thinks, the
+      systems landscape as narrative, and the approval matrix
+- [x] `decisions/decision-log.md` — DEC-001 to DEC-011, the method and pipeline
+      decisions, including one superseded pair kept as a worked example
+- [x] `processes/` — the flywheel itself, with a hand-authored diagram
+- [x] `evidence/question-register.md` — the collector that drives the loop:
+      open questions, people still to be identified, and what has been answered
+- [x] `evidence/interviews/` — one prepped brief per person, drafted from the
+      register. Three of the eight people in the queue are briefed, which is the
+      intended state: you brief the meetings that are actually happening
+- [x] `standards/` — pull request policy and PR requirements
+- [x] `templates/` — a prompt per recurring job plus the summary template
+- [x] Example transcripts and their summaries — two Teams `.vtt` transcripts in
+      `evidence/meetings/`, each with a summary. The 2026-03-04 integration
+      review is the source six insight rows already cited; the 2026-03-11
+      service desk sync is the five-minute counterexample
+- [ ] Decision records for the questions the dataset raises — whether an SSO
+      trust belongs in the integration model, where the plant boundary sits,
+      whether tiering should apply to paths rather than applications. All three
+      are recorded as insights and open questions, none is decided
+- [ ] `processes/` beyond the flywheel — `repo-conventions.md` uses
+      `change-control-process.md` as its worked example and it does not exist
+- [x] `context/the-brief/` — the briefing. `slides.html` is a self-contained
+      22-slide deck (no build step, no CDN; arrows navigate, **O** overview,
+      **F** fullscreen, prints to PDF) and `demo-script.md` is the run-of-show
+      with timings, live-demo commands, fallbacks, and the questions the room
+      asks. Outline came from `templates/demo.md`.
+      **The deck pulls the flywheel diagram by relative path** rather than
+      embedding a copy — so it always shows the current render.
+      `thumbnail.html` holds three YouTube thumbnail concepts and an OG share
+      card. `demo-inputs/` holds three **deliberately unprocessed** transcripts
+      with an `expected-changes.md` answer key — do not process them
 - [ ] Optional GitHub Pages publishing surface
 
 ---
@@ -84,6 +111,7 @@ AI working sessions are recorded in `evidence/meetings/` with an `-ai` suffix. A
 | Date | File | Topics Covered |
 |---|---|---|
 | 2026-08-04 | [`2026-08-04-repo-bootstrap-ai.md`](../evidence/meetings/2026-08-04-repo-bootstrap-ai.md) | Initial repo seeding — schema, 17 app and 12 integration records, both automation scripts, generated landscape diagram, CI workflows. Addenda: first push, GitHub Actions setup, and pinning D2 output with a fixed salt |
+| 2026-08-04 | [`2026-08-04-context-and-process-seed-ai.md`](../evidence/meetings/2026-08-04-context-and-process-seed-ai.md) | Filled the four folders the README advertised and the repo did not have — `context/`, `decisions/`, `processes/`, `standards/` — plus `templates/`. Decision log DEC-001..011, the flywheel process and its diagram, PR policy, four prompts and the summary template. **Addenda:** the flywheel was missing its collector step (added `evidence/question-register.md`), then its prep and gate ordering (added `evidence/interviews/`, moved the human gate to the middle of the loop, six steps settling into three beats) |
 
 ---
 
