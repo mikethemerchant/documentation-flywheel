@@ -59,7 +59,17 @@ jobs:
       - name: Validate and render inventory
         run: python automation/render-inventory.py
 
+      # --salt is load-bearing, not decoration. D2 scopes each SVG's CSS with a
+      # generated class name, and without a fixed salt that name is derived
+      # per-platform: the same source rendered on Windows and on this runner
+      # produce SVGs whose geometry is identical and whose class names are not.
+      # The result is an auto-render commit rewriting the SVG on every single
+      # push, which is exactly the derived-file drift this repo claims to
+      # prevent. Any stable string works; it must simply never change, because
+      # changing it rewrites every SVG at once.
       - name: Render D2 diagrams
+        env:
+          D2_SALT: documentation-flywheel
         run: |
           # d2 will not create a missing output directory, and the folder is
           # only in git because a rendered SVG is committed in it.
@@ -67,7 +77,7 @@ jobs:
           for f in diagrams/source/*.d2; do
             out="diagrams/rendered/$(basename "${f%.d2}").svg"
             echo "  $f -> $out"
-            d2 "$f" "$out"
+            d2 --salt "$D2_SALT" "$f" "$out"
           done
 
       # The unglamorous step that makes everything above trustworthy.

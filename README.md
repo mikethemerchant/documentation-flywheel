@@ -101,8 +101,16 @@ python automation/gap-analysis.py                       # what's still unknown
 Diagrams need [D2](https://d2lang.com):
 
 ```bash
-d2 diagrams/source/integration-landscape.d2 diagrams/rendered/integration-landscape.svg
+d2 --salt documentation-flywheel \
+   diagrams/source/integration-landscape.d2 \
+   diagrams/rendered/integration-landscape.svg
 ```
+
+`--salt` pins the CSS class name D2 generates to scope each SVG. Without it the
+class name is derived per-platform, so the same source rendered on Windows and
+on Linux produces two SVGs that are visually identical and textually different —
+and CI would commit that difference back on every push. Use the same salt
+locally as the pipeline does, or your render will look like a change.
 
 CI does all of this on every push. No secrets, no external services, no accounts — clone it and it works.
 
