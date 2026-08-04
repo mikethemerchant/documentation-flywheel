@@ -140,14 +140,30 @@ exactly — the `viewBox` was the same to the pixel. The only difference was the
 CSS class name D2 generates to scope each SVG, which is derived per-platform.
 
 Left alone, every push to `main` would have rewritten that SVG, which is
-precisely the drift this repository claims to prevent. Fixed by rendering with
-`--salt documentation-flywheel` everywhere; the salt must never change, because
-changing it rewrites every SVG at once.
+precisely the drift this repository claims to prevent.
 
-Worth keeping as a story rather than just a fix: the verification step existed
-to catch a half-rendered catalog, and what it actually caught was the pipeline
-disagreeing with a contributor's laptop about a file neither of them had
-edited.
+**The first fix was wrong.** `d2 --salt <value>` looked like the answer and is
+not: it changes the generated id without making it platform-independent. After
+merging it, the pipeline committed the SVG back a second time — Windows
+produced `d2-1594564165` and the runner produced `d2-1681756903`, both salted,
+both different.
+
+What settled it was proving the id is the *only* difference. Normalizing the id
+out of both files gave byte-identical SVGs, so the geometry, styling, and
+embedded fonts were never in question. `automation/render-diagrams.py` now
+renders every diagram and rewrites D2's generated id to one derived from the
+diagram's filename — stable across platforms because nothing about the machine
+feeds into it, and still unique per diagram, which is the property D2 wanted
+from the hash in the first place. Both workflows call that script, so they
+cannot drift apart in how they invoke D2.
+
+Worth keeping as a story rather than just a fix, for two reasons. The
+verification step existed to catch a half-rendered catalog, and what it
+actually caught was the pipeline disagreeing with a contributor's laptop about
+a file neither of them had edited. And the first remedy was plausible, cheap,
+and wrong — it took a second failure and an actual byte-level comparison to
+find the real cause. "Generated files must not drift" is easy to write in a
+README and takes real work to hold.
 
 ---
 
