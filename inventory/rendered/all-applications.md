@@ -15,7 +15,7 @@
 | [Electronic Signature](../apps/e-signature.md) | Quill | Document Signature | Active | Applications | **Unknown** | Cloud (SaaS) | Tier 3 - Standard | 0 |
 | [Endpoint Management](../apps/endpoint-management.md) | Northgate IT | Endpoint Management | Active | Infrastructure | Alan Petrov | Cloud (SaaS) | Tier 2 - Important | 0 |
 | [Enterprise Data Warehouse (EDW)](../apps/enterprise-data-warehouse.md) | Lumen Analytics | Data Warehousing | Active | Data & Integrations | Sofia Marchetti | Cloud (Hosted) | Tier 2 - Important | 3 |
-| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Meridian Systems | Financial Management / Order Management / Inventory Management / Procurement | Active | Applications | Priya Raman | Cloud (Hosted) | Tier 1 - Critical | 8 |
+| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Meridian Systems | Financial Management / Order Management / Inventory Management / Procurement | Active | Applications | Rachel Nkemdirim | Cloud (Hosted) | Tier 1 - Critical | 8 |
 | [Expense Management](../apps/expense-management.md) | Halcyon Cloud | Expense Management | Active | Applications | Priya Raman | Cloud (SaaS) | Tier 3 - Standard | 1 |
 | [Human Capital Management (HCM)](../apps/human-capital-management.md) | Halcyon Cloud | Human Resources Management | Active | Applications | Rachel Nkemdirim | Cloud (SaaS) | Tier 2 - Important | 3 |
 | [Identity Provider (SSO)](../apps/identity-provider.md) | Northgate IT | Identity & Access Management | Active | Security | Ken Oyelaran | Cloud (SaaS) | Tier 1 - Critical | 1 |

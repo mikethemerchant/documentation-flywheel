@@ -11,7 +11,7 @@ Core transactional system of record — order to cash, procure to pay, finance, 
 
 | Role | Who |
 |---|---|
-| SME (who to call) | Priya Raman |
+| SME (who to call) | Rachel Nkemdirim |
 | Technical owner | Tom Bergstrom |
 | Manager | Marcus Iwu |
 | Accountable team | Applications |

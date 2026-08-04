@@ -57,21 +57,21 @@ _14 record(s)._
 
 ## Priya Raman
 
-_4 record(s)._
+_3 record(s)._
 
 | Application | Role(s) | Lifecycle | Tier |
 |---|---|---|---|
-| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | SME | Active | Tier 1 - Critical |
 | [Expense Management](../apps/expense-management.md) | SME | Active | Tier 3 - Standard |
 | [Tax Engine](../apps/tax-engine.md) | SME | Active | Tier 2 - Important |
 | [Warehouse Management (WMS)](../apps/warehouse-management.md) | SME | Active | Tier 1 - Critical |
 
 ## Rachel Nkemdirim
 
-_2 record(s)._
+_3 record(s)._
 
 | Application | Role(s) | Lifecycle | Tier |
 |---|---|---|---|
+| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | SME | Active | Tier 1 - Critical |
 | [Human Capital Management (HCM)](../apps/human-capital-management.md) | SME | Active | Tier 2 - Important |
 | [Payroll](../apps/payroll.md) | SME | Active | Tier 2 - Important |
 
