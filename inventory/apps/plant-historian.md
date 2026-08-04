@@ -24,7 +24,7 @@ Time-series capture of line and machine telemetry at the two manufacturing sites
 | Capability | Manufacturing Data Historian |
 | Primary users | Manufacturing |
 | Lifecycle | Active |
-| Hosting | **TBD** |
+| Hosting | On-Prem |
 
 ## Recovery
 
@@ -52,7 +52,8 @@ _None._
 ## Notes
 
 Infrastructure keeps the server patched and backed up; nobody in IT can explain the tag configuration, the retention policy, or which of the downstream reports depend on which tags. The platform has an owner and the application does not, and the record shows both — which is the whole point of keeping those two fields apart.
-Hosting is TBD because it is contested rather than unknown: it was commissioned by the controls integrator and it is not settled whether the box sits inside the plant network boundary or the corporate one. That answer changes who is accountable for patching it.
+2026-08-04 (infrastructure catchup): hosting resolved to On-Prem. It is a vendor appliance — a physical box in the plant electrical room, which Tom Bergstrom has stood next to. Closes Q-009.
+The boundary dispute is unchanged and was never the same question. The field sat at TBD for five months because "where does it run" and "whose network is it on" had been collapsed into one unanswerable thing; the first took thirty seconds to answer once it was asked on its own. Whether the box sits inside the plant network boundary or the corporate one is still contested — Q-007, insight 7 — and that is what decides who patches it.
 
 ---
 

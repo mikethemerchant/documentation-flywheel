@@ -1,0 +1,201 @@
+WEBVTT
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/1-0
+00:00:02.200 --> 00:00:09.907
+<v Marcus Iwu>Have you got ten minutes? I'm not waiting until September for two of these.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/2-0
+00:00:16.907 --> 00:00:22.682
+<v Tom Bergstrom>Go on. I'm in the DC but I can talk.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/3-0
+00:00:22.832 --> 00:00:26.956
+<v Marcus Iwu>Recording it, if that's alright. Saves me writing.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/4-0
+00:00:33.956 --> 00:00:35.356
+<v Tom Bergstrom>Fine.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/5-0
+00:00:44.856 --> 00:00:54.966
+<v Marcus Iwu>First one's quick. Endpoint management. It shows up on the gap report with no integrations at all. Is that right?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/6-0
+00:00:56.566 --> 00:01:00.889
+<v Tom Bergstrom>No, that's wrong. It talks to the warehouse.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/7-0
+00:01:00.939 --> 00:01:02.369
+<v Marcus Iwu>Since when?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/8-0
+00:01:05.769 --> 00:01:16.790
+<v Tom Bergstrom>Since we put it in. It pushes asset and compliance data up every night — device inventory, patch state, encryption status.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/9-0
+00:01:17.090 --> 00:01:18.887
+<v Marcus Iwu>Into the EDW?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/10-0
+00:01:24.387 --> 00:01:30.738
+<v Tom Bergstrom>Into the EDW. Sofia's team pull it into the endpoint compliance dashboard.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/11-0
+00:01:40.238 --> 00:01:43.898
+<v Marcus Iwu>That's just never been written down.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/12-0
+00:01:45.098 --> 00:01:51.875
+<v Tom Bergstrom>Apparently not. It's not a thing anyone thinks about, it's just been running.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/13-0
+00:01:51.975 --> 00:01:55.773
+<v Marcus Iwu>How does it move? API, file, what?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/14-0
+00:01:55.873 --> 00:02:02.835
+<v Tom Bergstrom>REST. The vendor pushes it on a schedule, about two in the morning.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/15-0
+00:02:03.735 --> 00:02:08.817
+<v Tom Bergstrom>Straight across. It doesn't go through the integration platform.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/16-0
+00:02:09.017 --> 00:02:14.056
+<v Marcus Iwu>And if the warehouse is down when it fires?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/17-0
+00:02:14.256 --> 00:02:22.473
+<v Tom Bergstrom>Nothing happens. The tool keeps its own inventory, that's the system of record for it.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/18-0
+00:02:29.473 --> 00:02:40.778
+<v Tom Bergstrom>Next night's run just carries the full state again. You'd have a stale dashboard for a day, that's the extent of it.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/19-0
+00:02:40.858 --> 00:02:43.997
+<v Marcus Iwu>So stoppable, no data loss.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/20-0
+00:02:49.497 --> 00:02:55.654
+<v Tom Bergstrom>Correct. That one's genuinely boring, which is why nobody wrote it down.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/21-0
+00:03:01.154 --> 00:03:08.593
+<v Marcus Iwu>That's usually the reason. Right, second one. The historian. Where does it actually run?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/22-0
+00:03:11.993 --> 00:03:18.548
+<v Tom Bergstrom>It's an appliance. There's a physical box in the plant electrical room.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/23-0
+00:03:19.448 --> 00:03:22.750
+<v Marcus Iwu>You're sure? The record says TBD.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/24-0
+00:03:23.650 --> 00:03:29.139
+<v Tom Bergstrom>I'm sure about the box. I've stood next to it.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/25-0
+00:03:38.639 --> 00:03:40.048
+<v Marcus Iwu>So on-prem.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/26-0
+00:03:40.348 --> 00:03:45.476
+<v Tom Bergstrom>On-prem. What I'm not sure about is whether it's mine.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/27-0
+00:03:46.676 --> 00:03:49.388
+<v Marcus Iwu>Which is the other question.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/28-0
+00:03:53.888 --> 00:04:01.130
+<v Tom Bergstrom>Which is the other question, and I don't think it's changed since March.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/29-0
+00:04:05.630 --> 00:04:09.444
+<v Marcus Iwu>Give me your version again anyway.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/30-0
+00:04:09.524 --> 00:04:21.816
+<v Tom Bergstrom>My position is it's inside the plant network boundary, so it's plant. Ken thinks anything with an IP address on a corporate switch is mine.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/31-0
+00:04:28.816 --> 00:04:33.359
+<v Tom Bergstrom>We're both partly right, which is the problem.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/32-0
+00:04:36.759 --> 00:04:39.879
+<v Marcus Iwu>What would actually settle it?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/33-0
+00:04:44.379 --> 00:04:54.799
+<v Tom Bergstrom>Somebody looking at where it physically terminates and making a call. It's an afternoon of work and nobody owns the afternoon.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/34-0
+00:04:55.099 --> 00:05:02.155
+<v Marcus Iwu>That's fair. I'll take that to Dana rather than keep pinging you both.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/35-0
+00:05:07.655 --> 00:05:09.055
+<v Tom Bergstrom>Please.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/36-0
+00:05:22.055 --> 00:05:31.517
+<v Marcus Iwu>Last one, and it's the awkward one. The RTOs on the records. Have any of them actually been tested?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/37-0
+00:05:31.817 --> 00:05:33.826
+<v Tom Bergstrom>Define tested.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/38-0
+00:05:34.726 --> 00:05:38.718
+<v Marcus Iwu>Somebody failed something over and timed it.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/39-0
+00:05:38.818 --> 00:05:40.218
+<v Tom Bergstrom>Then no.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/40-0
+00:05:41.418 --> 00:05:43.462
+<v Marcus Iwu>None of them?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/41-0
+00:05:44.362 --> 00:05:56.262
+<v Tom Bergstrom>There was a partial on the old ERP before the hosting move. That system doesn't exist any more, so I wouldn't count it.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/42-0
+00:05:56.312 --> 00:06:02.629
+<v Tom Bergstrom>Everything on those records came out of contracts and vendor commitments.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/43-0
+00:06:02.729 --> 00:06:05.841
+<v Marcus Iwu>So they're commitments, not measurements.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/44-0
+00:06:09.241 --> 00:06:17.759
+<v Tom Bergstrom>They're what somebody agreed to. Whether it happens on the day, I genuinely couldn't tell you.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/45-0
+00:06:17.959 --> 00:06:20.176
+<v Marcus Iwu>Does that worry you?</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/46-0
+00:06:20.576 --> 00:06:29.364
+<v Tom Bergstrom>It worries me more that they're written down in a way that looks like they've been proven.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/47-0
+00:06:29.464 --> 00:06:36.968
+<v Marcus Iwu>That's a fair hit. I'll flag it as a finding rather than change the numbers.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/48-0
+00:06:40.368 --> 00:06:47.773
+<v Tom Bergstrom>Don't change the numbers. The numbers are what we're owed. Just say nobody's checked.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/49-0
+00:06:51.173 --> 00:06:54.614
+<v Marcus Iwu>Noted. That's me, thanks Tom.</v>
+
+3f7c91a2-6d84-4b17-9e50-c1a8b2f45d63/50-0
+00:06:56.214 --> 00:06:57.614
+<v Tom Bergstrom>No problem.</v>

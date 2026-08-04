@@ -45,11 +45,14 @@ _None._
 
 ### Flows out — this application is the source
 
-_None._
+| To | Direction | Connection | Middleware | DR impact |
+|---|---|---|---|---|
+| Enterprise Data Warehouse (EDW) | Outbound | API (REST) | Direct (none) | Stoppable - no data loss |
 
 ## Notes
 
 The person who uses it daily and the person who owns the platform are different people on purpose. Collapsing those into one field would lose the distinction between "who do I call about a policy" and "who do I call when the tenant is down".
+2026-08-04 (infrastructure catchup): not standalone after all. It pushes asset and compliance data into the EDW nightly and has done since implementation; the flow is now recorded. Closes Q-013.
 
 ---
 
