@@ -15,7 +15,7 @@ _10 application(s)._
 |---|---|---|---|---|
 | [Customer Relationship Management (CRM)](../apps/customer-relationship-mgmt.md) | Halcyon Cloud | Active | Marcus Iwu | Tier 2 - Important |
 | [Electronic Signature](../apps/e-signature.md) | Quill | Active | **Unknown** | Tier 3 - Standard |
-| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Meridian Systems | Active | Priya Raman | Tier 1 - Critical |
+| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Meridian Systems | Active | Rachel Nkemdirim | Tier 1 - Critical |
 | [Expense Management](../apps/expense-management.md) | Halcyon Cloud | Active | Priya Raman | Tier 3 - Standard |
 | [Human Capital Management (HCM)](../apps/human-capital-management.md) | Halcyon Cloud | Active | Rachel Nkemdirim | Tier 2 - Important |
 | [Legacy Order Entry](../apps/legacy-order-entry.md) | Internal | Retiring | **Unknown** | Tier 3 - Standard |

@@ -73,7 +73,7 @@ _2 application(s)._
 
 | Application | Lifecycle | Team | SME |
 |---|---|---|---|
-| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Active | Applications | Priya Raman |
+| [Enterprise Resource Planning (ERP)](../apps/meridian-erp.md) | Active | Applications | Rachel Nkemdirim |
 | [Warehouse Management (WMS)](../apps/warehouse-management.md) | Active | Applications | Priya Raman |
 
 ## Northgate IT
