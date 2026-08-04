@@ -94,10 +94,11 @@ at rather than tidying away.
 | 1 | Publishing safety sweep | Michael Bender | Open — repository was published before this ran |
 | 2 | Non-technical review pass | Michael Bender | Open |
 | 3 | Video scrub checklist | Michael Bender | Open |
-| 4 | Push `main` and set it as the default branch on the remote | Michael Bender | Pushed; default branch still `master` |
+| 4 | Push `main` and set it as the default branch on the remote | Michael Bender | **Done** — `main` pushed and set as default |
 | 5 | Write the example transcripts and their summaries | Next session | Open |
 | 6 | Decide whether an SSO trust belongs in the integration model, and record it as a decision | Next session | Open |
-| 7 | Delete the `master` branch once the default has moved to `main` | Michael Bender | Open |
+| 7 | Delete the `master` branch once the default has moved to `main` | Michael Bender | **Done** — deleted; it was an ancestor of `main` |
+| 8 | Confirm the render loop stays quiet — a push to `main` should produce no auto-render commit | Next session | **Done** — Render #3 committed nothing back |
 
 ---
 
