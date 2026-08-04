@@ -1,0 +1,141 @@
+WEBVTT
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/1-0
+00:00:02.200 --> 00:00:07.748
+<v Marcus Iwu>Two minutes on the SSO side, if you've got it. Recording.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/2-0
+00:00:08.048 --> 00:00:09.448
+<v Ken Oyelaran>Go.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/3-0
+00:00:09.948 --> 00:00:20.319
+<v Marcus Iwu>The identity provider pushes joiner and leaver events into the HCM. What happens to those if the HCM is unavailable?</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/4-0
+00:00:20.819 --> 00:00:24.260
+<v Ken Oyelaran>Depends which direction you mean.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/5-0
+00:00:37.260 --> 00:00:39.174
+<v Marcus Iwu>Deprovisioning. Somebody leaves.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/6-0
+00:00:39.674 --> 00:00:46.759
+<v Ken Oyelaran>Then it's a problem. The event fires once. There's no queue and no retry.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/7-0
+00:00:46.859 --> 00:00:48.641
+<v Marcus Iwu>It's dropped?</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/8-0
+00:00:49.141 --> 00:00:53.911
+<v Ken Oyelaran>It's dropped. The IdP thinks it did its job.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/9-0
+00:00:57.311 --> 00:01:02.794
+<v Marcus Iwu>So if the HCM is down during an offboarding window.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/10-0
+00:01:04.394 --> 00:01:10.729
+<v Ken Oyelaran>Then that account doesn't get disabled downstream and nothing tells anybody.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/11-0
+00:01:10.879 --> 00:01:13.655
+<v Marcus Iwu>How would we find out?</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/12-0
+00:01:14.055 --> 00:01:20.818
+<v Ken Oyelaran>The quarterly access review. So somewhere between one day and three months later.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/13-0
+00:01:22.418 --> 00:01:29.649
+<v Marcus Iwu>That's not a data loss risk in the normal sense. That's an access one.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/14-0
+00:01:29.849 --> 00:01:37.294
+<v Ken Oyelaran>It's the same shape. Something that should have happened didn't, and nothing replays it.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/15-0
+00:01:40.094 --> 00:01:41.990
+<v Marcus Iwu>Has it happened?</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/16-0
+00:01:43.590 --> 00:01:52.319
+<v Ken Oyelaran>Not that I've caught. But I'd only catch it in the review, so that's not saying much.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/17-0
+00:02:05.319 --> 00:02:14.238
+<v Marcus Iwu>Okay. I'm recording that as cannot stop, data loss risk, and writing the actual behaviour into the notes.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/18-0
+00:02:14.338 --> 00:02:20.071
+<v Ken Oyelaran>Do. It reads as a low-stakes flow and it isn't.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/19-0
+00:02:20.271 --> 00:02:23.536
+<v Marcus Iwu>While you're here. The historian boundary.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/20-0
+00:02:24.036 --> 00:02:25.957
+<v Ken Oyelaran>It's Tom's.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/21-0
+00:02:26.357 --> 00:02:29.063
+<v Marcus Iwu>He says it's the plant's.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/22-0
+00:02:38.563 --> 00:02:47.653
+<v Ken Oyelaran>He would. Look — my position is I can't be accountable for patching something I can't see.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/23-0
+00:02:49.253 --> 00:02:56.862
+<v Ken Oyelaran>If it's on a segment I don't scan, it isn't mine. That's the whole argument.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/24-0
+00:02:58.062 --> 00:03:03.707
+<v Marcus Iwu>Tom says it's a box in the plant electrical room.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/25-0
+00:03:05.307 --> 00:03:15.872
+<v Ken Oyelaran>Then somebody should tell me what it's plugged into, because that's the only fact that matters and I've never had it.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/26-0
+00:03:18.672 --> 00:03:24.120
+<v Marcus Iwu>That's roughly what he said too, from the other end.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/27-0
+00:03:28.620 --> 00:03:36.331
+<v Ken Oyelaran>Then we agree on the question and not the answer, which is worse than disagreeing.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/28-0
+00:03:36.411 --> 00:03:39.550
+<v Marcus Iwu>I'll take it to Dana.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/29-0
+00:03:45.050 --> 00:03:49.677
+<v Ken Oyelaran>One more thing while you're writing things down.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/30-0
+00:03:49.757 --> 00:03:51.778
+<v Marcus Iwu>Go on.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/31-0
+00:03:52.078 --> 00:04:01.581
+<v Ken Oyelaran>Every SaaS app we have authenticates through the IdP and none of that is in your integration list.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/32-0
+00:04:08.581 --> 00:04:13.408
+<v Marcus Iwu>It's on the list of things to decide.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/33-0
+00:04:26.408 --> 00:04:39.408
+<v Ken Oyelaran>It's been on the list of things to decide since March. If that thing is down, most of the estate is unreachable and your diagram shows one line coming out of it.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/34-0
+00:04:52.408 --> 00:04:59.093
+<v Marcus Iwu>That's a fair point and I'm not going to solve it today.</v>
+
+a91d47e5-2c30-4f6b-8d19-7e5b0a3c9f21/35-0
+00:05:06.093 --> 00:05:10.753
+<v Ken Oyelaran>I know. I just want it on the recording.</v>

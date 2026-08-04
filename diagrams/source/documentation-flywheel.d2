@@ -1,0 +1,93 @@
+# Hand-authored. Renders to diagrams/rendered/documentation-flywheel.svg.
+# Render with `python automation/render-diagrams.py`, never with `d2` directly
+# — see meta/repo-conventions.md.
+#
+# Companion to processes/documentation-flywheel.md, which carries the detail.
+# Labels here are deliberately short: this shows the handoffs, not the
+# procedure. If the two disagree, the process document wins.
+#
+# Laid out as a single column with no containers. Grouping steps 1-3 and 4-6
+# into containers reads better as source and renders worse: dagre applies one
+# direction to the whole diagram, so a nested `direction: right` is ignored and
+# the containers only add padding. A grid layout gets the shape right and drops
+# every edge, which costs more than it buys — the edges are the handoffs.
+
+direction: down
+
+legend: |md
+  ### The documentation flywheel
+
+  **1–3** — assistant prep, on a branch
+  **4** — the human gate
+  **5–6** — the conversation and its
+  processing, and **6 *is* 1–3** for
+  the next round
+
+  One pull request carries both the
+  closeout of the last conversation
+  and the prep for the next one.
+
+  After the first turn it settles into
+  three beats: **approve → talk →
+  process**, and none of them ends with
+  "somebody should work out what's next".
+
+  - **Bold box** — the gate, and the two
+    steps the loop depends on
+  - **Dashed edge** — the return path
+|
+
+gaps: "1 · The machine reports what is missing        —        gap-analysis.py, against the records as they now stand" {
+  shape: rectangle
+}
+
+register: "2 · The question register        —        evidence/question-register.md\n\nEvery gap gets a name against it.   Open questions · people still to be identified · what has been answered." {
+  shape: rectangle
+  style.bold: true
+  style.stroke-width: 3
+}
+
+briefs: "3 · Interview briefs        —        evidence/interviews/<person>.md\n\nOne per person, only for meetings that are actually coming up.   The questions as you would say them\nout loud, what a good answer looks like, and what NOT to ask because it is already recorded." {
+  shape: rectangle
+  style.bold: true
+  style.stroke-width: 3
+}
+
+review: "4 · APPROVE        —        human approves, pipeline republishes\n\nTHE GATE.   A person approves every word; the schema rejects an invented owner outright.\nOn merge the published docs are current AND the next brief is live and reviewed." {
+  shape: rectangle
+  style.bold: true
+  style.stroke-width: 4
+}
+
+meeting: "5 · TALK        —        the conversation, brief in hand\n\nA meeting that was happening anyway.   No homework for the expert: they turn up and talk.   Recorded." {
+  shape: rectangle
+}
+
+process: "6 · PROCESS        —        the transcript is processed\n\nRecords, decisions, insights, and the summary — then steps 1–3 again for the next round." {
+  shape: rectangle
+}
+
+insights: "insights-surfaced.md        —        what the questions revealed about the organization" {
+  shape: rectangle
+  style.stroke-dash: 2
+  style.opacity: 0.8
+}
+
+gaps -> register: "gaps, with a name attached"
+register -> briefs: "the rows for whoever has a meeting coming up"
+briefs -> review: "pull request"
+review -> meeting: "merged, published, briefed"
+meeting -> process: "recording"
+
+process -> review: "same pull request: closeout + next prep" {
+  style.stroke-dash: 4
+}
+
+process -> gaps: "re-run against the updated records" {
+  style.stroke-dash: 4
+}
+
+process -> insights: "byproduct" {
+  style.stroke-dash: 4
+  style.opacity: 0.8
+}

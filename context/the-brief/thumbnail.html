@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thumbnails — documentation flywheel</title>
+<!--
+  Thumbnail concepts for YouTube and the website.
+
+  HOW TO EXPORT (Chrome or Edge, exact pixels, no cropping):
+    1. Open this file.
+    2. F12 → click the arrow/inspect tool → click the thumbnail you want.
+    3. In the Elements panel, right-click the highlighted <div class="thumb">
+       → "Capture node screenshot".
+    4. It saves a PNG at exactly the right size.
+
+  Or just screenshot at 100% zoom — each card is already at true pixel size.
+
+  Sizes:
+    .thumb   1280 x 720  — YouTube thumbnail (also fine as a site hero)
+    .og      1200 x 630  — LinkedIn / OG share card
+
+  Palette matches slides.html on purpose, so video, deck and site read as one thing.
+-->
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#141A24; --line:#26313F;
+    --ink:#FFFFFF; --dim:#A9B4C8; --faint:#67748C;
+    --accent:#6AA6FF; --amber:#FFB454; --green:#56D98A; --red:#FF7A7A;
+    --mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",monospace;
+    --sans:"Segoe UI Variable Display","Segoe UI",Inter,-apple-system,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#05070B;color:#8A94A8;font-family:var(--sans);padding:40px;display:flex;
+    flex-direction:column;align-items:center;gap:16px}
+  .label{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#67748C;
+    align-self:flex-start;margin-left:calc(50% - 640px);font-weight:700}
+  .label b{color:var(--accent)}
+
+  .thumb,.og{
+    position:relative;overflow:hidden;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);flex:none;
+  }
+  .thumb{width:1280px;height:720px;padding:78px 84px}
+  .og{width:1200px;height:630px;padding:70px 78px}
+
+  /* shared furniture ------------------------------------------------ */
+  .glow{position:absolute;inset:0;pointer-events:none}
+  .glow.blue{background:radial-gradient(820px 520px at 88% 8%,rgba(106,166,255,.20),transparent 62%)}
+  .glow.amber{background:radial-gradient(760px 480px at 92% 92%,rgba(255,180,84,.16),transparent 60%)}
+  .grid{position:absolute;inset:0;pointer-events:none;opacity:.42;
+    background-image:linear-gradient(rgba(106,166,255,.075) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(106,166,255,.075) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(900px 620px at 78% 22%,#000 15%,transparent 78%);
+            mask-image:radial-gradient(900px 620px at 78% 22%,#000 15%,transparent 78%)}
+  .stack{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center}
+
+  .eyebrow{font-size:23px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;
+    color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:16px}
+  .eyebrow::after{content:"";width:120px;height:3px;background:var(--accent);border-radius:2px;opacity:.55}
+
+  .huge{font-size:118px;line-height:.94;letter-spacing:-.045em;font-weight:900;
+    text-transform:uppercase;text-wrap:balance}
+  .huge .hl{color:var(--accent)}
+  .huge .am{color:var(--amber)}
+  .sub{font-size:31px;line-height:1.32;color:var(--dim);margin-top:30px;max-width:24ch;font-weight:500}
+  .sub b{color:var(--ink);font-weight:800}
+
+  .foot{position:absolute;left:84px;bottom:64px;display:flex;align-items:center;gap:14px;
+    font-size:20px;color:var(--faint);font-weight:650;letter-spacing:.02em}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 14px rgba(86,217,138,.9)}
+
+  /* terminal chip ---------------------------------------------------- */
+  .term{position:absolute;right:84px;bottom:74px;width:520px;background:#0E141D;
+    border:1px solid var(--line);border-radius:13px;overflow:hidden;
+    box-shadow:0 28px 70px rgba(0,0,0,.6);transform:rotate(-1.2deg)}
+  .term .bar{height:34px;background:#131A25;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;padding:0 15px}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#2C3746;display:block}
+  .term pre{font-family:var(--mono);font-size:18px;line-height:1.62;padding:20px 22px;color:#C6D3E6}
+  .term .c{color:#5B6B84} .term .r{color:var(--red);font-weight:700}
+  .term .g{color:var(--green)} .term .a{color:var(--amber)}
+
+  /* numbers concept -------------------------------------------------- */
+  .nums{display:flex;align-items:flex-start;gap:76px;margin-bottom:12px}
+  .num .v{font-size:210px;line-height:.8;font-weight:900;letter-spacing:-.06em;color:var(--ink)}
+  .num .v.b{color:var(--accent)}
+  .num .k{font-size:25px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;
+    color:var(--faint);margin-top:22px}
+  .rule{width:96px;height:7px;background:var(--accent);border-radius:4px;margin-bottom:32px}
+
+  /* og card ---------------------------------------------------------- */
+  .og .huge{font-size:96px}
+  .og .sub{font-size:27px;margin-top:26px}
+  .og .foot{left:78px;bottom:56px;font-size:19px}
+</style>
+</head>
+<body>
+
+<!-- ============ A · the claim ============ -->
+<div class="label">A · the claim <b>— safest, describes the video</b></div>
+<div class="thumb">
+  <div class="glow blue"></div><div class="grid"></div>
+  <div class="stack">
+    <div class="eyebrow">Docs as code</div>
+    <div class="huge">Documentation<br>that <span class="hl">maintains<br>itself</span></div>
+    <div class="sub">Git, AI, and the meetings<br>you're <b>already having</b></div>
+  </div>
+  <div class="term">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <pre><span class="c">$</span> render-inventory.py --validate-only
+<span class="r">FAIL</span>  meridian-erp.yaml
+      it_sme: <span class="r">"Applications"</span>
+      <span class="c">not in approved roster</span></pre>
+  </div>
+  <div class="foot"><span class="dot"></span> 17 apps · 12 integrations · 0 people maintaining it</div>
+</div>
+
+<!-- ============ B · the numbers ============ -->
+<div class="label">B · the numbers <b>— highest curiosity, weakest on its own</b></div>
+<div class="thumb">
+  <div class="glow blue"></div><div class="glow amber"></div><div class="grid"></div>
+  <div class="stack">
+    <div class="rule"></div>
+    <div class="nums">
+      <div class="num"><div class="v b">45</div><div class="k">Interviews</div></div>
+      <div class="num"><div class="v">6</div><div class="k">Days</div></div>
+    </div>
+    <div class="huge" style="font-size:62px;letter-spacing:-.035em">Out of people's heads.<br>
+      Into <span class="am">validated YAML.</span></div>
+  </div>
+  <div class="foot"><span class="dot"></span> The documentation system nobody maintains</div>
+</div>
+
+<!-- ============ C · the uncomfortable truth ============ -->
+<div class="label">C · the hook <b>— most clickable, my pick for YouTube</b></div>
+<div class="thumb">
+  <div class="glow amber"></div><div class="grid"></div>
+  <div class="stack">
+    <div class="eyebrow" style="color:var(--amber)">Architecture docs</div>
+    <div class="huge">Nobody<br>maintains<br><span class="am">this.</span></div>
+    <div class="sub">It's still correct.<br><b>Here's the whole system.</b></div>
+  </div>
+  <div class="term" style="transform:rotate(1.1deg)">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <pre><span class="c">$</span> gap-analysis.py
+
+<span class="a">12</span> open gap(s).
+<span class="c">Each one is a question</span>
+<span class="c">for a person, not a task.</span></pre>
+  </div>
+  <div class="foot"><span class="dot"></span> Text · Git · CI · MIT licensed</div>
+</div>
+
+<!-- ============ OG / LinkedIn share card ============ -->
+<div class="label">D · share card <b>— 1200 × 630 for LinkedIn and the site</b></div>
+<div class="og">
+  <div class="glow blue"></div><div class="grid"></div>
+  <div class="stack">
+    <div class="eyebrow">Documentation flywheel</div>
+    <div class="huge">Documentation<br>that <span class="hl">maintains itself</span></div>
+    <div class="sub">A working reference implementation.<br>Clone it and it runs.</div>
+  </div>
+  <div class="foot"><span class="dot"></span> Git · D2 · Python · GitHub Actions · MIT</div>
+</div>
+
+</body>
+</html>

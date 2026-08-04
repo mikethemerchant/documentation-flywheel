@@ -25,27 +25,54 @@ The published site is a **projection of this repository**, not a separate thing 
 The method that keeps it current:
 
 ```
-   ┌─────────────────────────────────────────────┐
-   │                                             │
-   ▼                                             │
-docs surface gaps  →  record a meeting you were  │
-                      already having             │
-                              │                  │
-                              ▼                  │
-              AI reads the transcript and drafts │
-              docs, diagrams, decisions          │
-                              │                  │
-                              ▼                  │
-              human reviews and commits;         │
-              pipeline validates and publishes   │
-                              │                  │
-                              ▼                  │
-                    new questions surface  ───────┘
+  AI PREP, on a branch
+  ┌──────────────────────────────────────────────────────┐
+  │  1. gap-analysis.py says what's missing               │
+  │              ↓                                       │
+  │  2. gaps land in the question register,               │
+  │     each with a name against it                      │
+  │              ↓                                       │
+  │  3. interview briefs are written, one per person,     │
+  │     for the meetings that are actually coming up      │
+  └──────────────────────────────────────────────────────┘
+                 ↓
+  ╔══════════════════════════════════════════════════════╗
+  ║  4. APPROVE — a human merges; the pipeline           ║
+  ║     revalidates, re-renders, republishes.            ║
+  ║     Docs are current AND the next brief is live.     ║
+  ╚══════════════════════════════════════════════════════╝
+                 ↓
+     5. TALK — the meeting you were having anyway,
+        brief in hand. Recorded.
+                 ↓
+     6. PROCESS — AI drafts records, decisions, insights,
+        the summary — then does 1-3 again
+                 ↓
+        back to 4, in the same pull request
 ```
 
-The load-bearing detail is step two: **it creates no homework for the expert.** They have a conversation they were going to have anyway. That's why the loop compounds instead of stalling the way documentation initiatives usually do.
+Once it's running it's three beats — **approve, talk, process** — and no beat ever ends with "someone should work out what's next."
 
-The second detail is that **a human reviews and commits everything.** The AI drafts; it does not publish. And the schema is a hard gate — it cannot invent a person into the owner roster, because that roster is a controlled list and an unknown value fails validation.
+Three details carry it.
+
+**No homework for the expert.** They have a conversation they were going to have anyway. They write nothing, review nothing, own no document afterwards. Every conventional approach eventually asks the expert to write something, and that's the point at which it stops.
+
+**The register and the briefs.** `evidence/question-register.md` holds what isn't known, who can answer it, and — the part that matters most — the people named as "you'd have to ask…" who were never resolved to an actual person. `evidence/interviews/` turns that into something you can walk into a room with: the questions as you'd say them out loud, what a good answer looks like, and what *not* to ask because it's already recorded. Without these, every turn starts by rediscovering what the last one already knew.
+
+**The gate sits in the middle, not at the end.** A human approves before the conversation, so the merge itself hands you a briefed interview. One pull request carries both the closeout of the last conversation and the prep for the next one. The AI drafts; it never publishes. And the schema is a hard gate — it cannot invent a person into the owner roster, because that roster is a controlled list and an unknown value fails validation.
+
+### Worked example
+
+Two real conversations are in `evidence/meetings/`, as Teams `.vtt` transcripts with their summaries — the fastest way to judge whether any of this holds up.
+
+| | |
+|---|---|
+| [2026-03-04 integration review](evidence/meetings/2026-03-04-erp-integration-review.md) | 23 minutes, four people, held before a change freeze for its own reasons. Produced six of the ten rows in the insight register. Nobody in the room said the word "documentation." |
+| [2026-03-11 service desk sync](evidence/meetings/2026-03-11-service-desk-sync.md) | Five minutes, two people, no agenda, asked while one of them cleared a ticket queue. Still produced an open question and a named gap. |
+
+The second one matters more than the first. The review looks like a project; the sync looks like a Wednesday, and the method has to work on Wednesdays.
+
+The transcripts are committed exactly as the tool exported them, transcription errors and all — *Meridien* for Meridian, *the I pass* for the iPaaS. A transcript is evidence; correcting it edits the record of what was said. Corrections go in the summary, where they can be attributed.
 
 ---
 
@@ -55,11 +82,11 @@ Each folder answers a question, rather than naming a document type.
 
 | Folder | Question it answers |
 |---|---|
-| `context/` | What world are we operating in? Constraints, assumptions, non-goals. |
+| `context/` | What world are we operating in? Constraints, assumptions, non-goals, who's who and how they think. Also `the-brief/` — the walkthrough deck and its script. |
 | `decisions/` | Why is it like this? Append-only decision records. |
 | `processes/` | How is change supposed to work? The intended operating model. |
 | `diagrams/` | How do systems actually connect? `.d2` source is authoritative; SVG is generated. |
-| `evidence/` | Show me what actually happened. Transcripts, summaries, metrics. |
+| `evidence/` | Show me what actually happened — transcripts, summaries, metrics. Plus the two files that drive the next round: `question-register.md` (what we don't know and who can answer it) and `interviews/` (the prepped brief per person). |
 | `inventory/` | What applications exist, who owns them, and how do they connect? |
 | `standards/` | What rules must every change follow? |
 | `templates/` | How do I start a new decision / summary / diagram? |

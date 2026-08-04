@@ -10,10 +10,13 @@ How files are named, organized, and maintained.
 |---|---|---|
 | Process docs | `kebab-case.md` | `change-control-process.md` |
 | D2 diagrams | `kebab-case.d2` | `integration-landscape.d2` |
-| Meeting summaries | `YYYY-MM-DD-description.md` | `2026-03-04-erp-integration-review.md` |
+| Meeting transcripts | `YYYY-MM-DD-description.vtt` — WebVTT, as exported from Teams | `2026-03-04-erp-integration-review.vtt` |
+| Meeting summaries | `YYYY-MM-DD-description.md` — same stem as its transcript | `2026-03-04-erp-integration-review.md` |
 | AI session notes | `YYYY-MM-DD-description-ai.md` | `2026-03-01-repo-bootstrap-ai.md` |
 | Inventory records | `kebab-case.yaml` | `warehouse-management.yaml` |
 | Decision records | `DEC-NNN` prefix in `decisions/decision-log.md` | `DEC-001: Docs-as-Code` |
+| Open questions | `Q-NNN` rows in `evidence/question-register.md` | `Q-007: plant boundary` |
+| Interview briefs | `<person-slug>.md` in `evidence/interviews/` — **not dated**, they are living files | `tom-bergstrom.md` |
 
 ---
 
@@ -42,7 +45,10 @@ These rules were learned the hard way. The rationale matters more than the rule.
 |---|---|---|
 | `diagrams/source/` | `.d2` files only | Any rendered output |
 | `diagrams/rendered/` | Pipeline-generated SVGs only | Hand-edited files |
-| `evidence/meetings/` | Transcripts and their `.md` summaries | Process docs or decisions |
+| `evidence/` (root) | `question-register.md` — the running list of open questions and people to identify | Anything else; content belongs in a subfolder |
+| `evidence/interviews/` | One living brief per person, refreshed each round | Briefs for meetings that are not scheduled; transcripts or summaries |
+| `evidence/meetings/` | `.vtt` transcripts and their `.md` summaries, one summary per transcript | Process docs or decisions; a transcript with no summary |
+| `context/the-brief/demo-inputs/` | **Deliberately unprocessed** `.vtt` files, staged as live-demo input. The one place a transcript without a summary is correct. **Do not process these.** | Anything that belongs in `evidence/` |
 | `evidence/metrics/` | Raw data exports | Processed or edited data |
 | `inventory/apps/data/` | One `.yaml` per application | Rendered markdown |
 | `inventory/rendered/` | Generated views | Anything hand-written |
@@ -80,7 +86,13 @@ The single most important distinction in the repo. Editing a generated file wast
 
 **Process documents:** title and purpose → scope (what's covered, what isn't) → roles → step-by-step procedure → exceptions and edge cases → link to the related diagram.
 
-**Meeting summaries:** date, participants, transcript link → purpose → key topics as tables → action items with owner and status → documents updated as a result.
+**Meeting summaries:** date, participants, transcript link → purpose → key topics as tables → action items with owner and status → documents updated as a result → open questions.
+
+**Transcripts are committed as they came out of the tool.** Transcription
+mangles proper nouns — "Meridian" becomes *Meridien*, the iPaaS becomes *the I
+pass* — and those are left alone. The transcript is evidence; correcting it
+edits the record of what was said. Corrections belong in the summary, where
+they can be attributed.
 
 **Decision records:** `DEC-NNN` → date and who decided → status (Active / Superseded by DEC-NNN) → the decision statement → rationale → trade-offs.
 
