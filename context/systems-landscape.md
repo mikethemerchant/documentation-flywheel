@@ -95,16 +95,34 @@ and neither is expressible in the current record model — there is no field for
 ## The reporting stack
 
 EDW pulls nightly from the ERP against a read replica, the plant historian
-pushes aggregated tag data into the same warehouse, and BI reads live from it.
-Nothing in this chain writes back, so the whole thing is stoppable with no data
-loss — the only part of the landscape where that is cleanly true.
+pushes aggregated tag data into the same warehouse, the endpoint management
+tenant pushes asset and compliance data into it overnight, and BI reads live
+from it. Nothing in this chain writes back, so the whole thing is stoppable with
+no data loss — the only part of the landscape where that is cleanly true.
+
+The endpoint feed is worth a sentence for how it was found rather than what it
+does. It had run nightly since the tool was implemented and existed in no
+record; it surfaced because the gap report flagged the application as having
+zero integrations and somebody spent thirty seconds asking whether that was
+true. Flows that go straight across, rather than through the integration
+platform, have nobody whose job it is to notice they are undocumented — which
+makes the count of them an open question rather than a closed one.
 
 The plant historian is the odd member. It is the one system with a foot in the
 operational-technology world, and whether it sits inside the plant network
 boundary or the corporate one has never been settled. That question decides who
-patches it, and both teams currently believe it is the other's. It is also
-carrying `hosting: TBD` and no SME, which is less an oversight than a symptom:
-an unowned boundary produces an unowned system.
+patches it, and both teams currently believe it is the other's. It still carries
+no SME, which is less an oversight than a symptom: an unowned boundary produces
+an unowned system.
+
+It carried `hosting: TBD` alongside that for five months, and the two were not
+the same problem. The historian is a vendor appliance — a physical box in the
+plant electrical room, which the infrastructure lead has stood next to. The
+hosting value was blank because "where does it run" had been folded into "whose
+network is it on", and only the second one was hard. Separating them took
+thirty seconds in a corridor conversation. The lesson is not about the
+historian; it is that a field left blank to hold an argument stops looking like
+a question anybody can answer.
 
 ---
 

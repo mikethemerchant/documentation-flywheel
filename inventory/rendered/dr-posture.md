@@ -62,6 +62,7 @@ Applications on their way out that still carry live data flows.
 
 | Flow | Connection | Failover behaviour |
 |---|---|---|
+| Endpoint Management → Enterprise Data Warehouse (EDW) | API (REST) | Vendor-side push on a nightly schedule, around 02:00. The endpoint management tenant holds its own device inventory and remains the system of record for it, so a missed run loses nothing — the next night's push carries the full state again rather than a delta. The visible effect of an outage is a compliance dashboard that is a day stale. |
 | Enterprise Data Warehouse (EDW) → Business Intelligence (BI) | Database Link | Dashboards read live from the warehouse. During an outage they serve the last cached result and carry a staleness indicator; nothing is written and nothing is lost. |
 | Enterprise Resource Planning (ERP) → Enterprise Data Warehouse (EDW) | Database Link | Nightly extract against a read replica. A missed run is re-run the following night with no loss, because the ERP remains the authoritative copy of everything this flow moves. |
 | Human Capital Management (HCM) → Payroll | File Transfer (SFTP) | Employee, rate, and time changes move as a scheduled file drop. A missed drop is re-sent; the HCM stays authoritative and the payroll run reads whatever landed most recently. |

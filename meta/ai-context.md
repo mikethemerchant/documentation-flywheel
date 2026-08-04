@@ -98,8 +98,11 @@ No databases, no external services, no secrets. Clone and it runs.
       **The deck pulls the flywheel diagram by relative path** rather than
       embedding a copy — so it always shows the current render.
       `thumbnail.html` holds three YouTube thumbnail concepts and an OG share
-      card. `demo-inputs/` holds three **deliberately unprocessed** transcripts
-      with an `expected-changes.md` answer key — do not process them
+      card. `demo-inputs/` holds **deliberately unprocessed** transcripts with
+      an `expected-changes.md` answer key — do not process them. **Two remain:**
+      the access review and the legacy order entry follow-up. The infrastructure
+      catchup was processed on request on 2026-08-04 and copied into
+      `evidence/meetings/`; its staged copy is untouched, so the demo still runs
 - [ ] Optional GitHub Pages publishing surface
 
 ---

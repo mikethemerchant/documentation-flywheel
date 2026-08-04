@@ -43,6 +43,7 @@ Consolidates transactional data from the ERP and process data from the plant his
 
 | From | Direction | Connection | Middleware | DR impact |
 |---|---|---|---|---|
+| Endpoint Management | Outbound | API (REST) | Direct (none) | Stoppable - no data loss |
 | Enterprise Resource Planning (ERP) | Outbound | Database Link | Direct (none) | Stoppable - no data loss |
 | Plant Historian | Outbound | Database Link | Direct (none) | Stoppable - no data loss |
 
@@ -55,6 +56,7 @@ Consolidates transactional data from the ERP and process data from the plant his
 ## Notes
 
 Every flow into and out of this system is stoppable with no data loss, because the sources remain authoritative and the loads are re-runnable. That property is why it sits at Tier 2 despite feeding every executive report in the business.
+2026-08-04 (infrastructure catchup): a third inbound feed was recorded — endpoint asset and compliance data, pushed nightly by the endpoint management vendor. The `purpose` field above names only the ERP and the historian and is now incomplete; left as it stands rather than reworded here, because a purpose statement listing every source will go stale the same way. The integration records are the answer to what feeds it.
 
 ---
 

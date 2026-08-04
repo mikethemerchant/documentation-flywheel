@@ -9,7 +9,7 @@ direction: down
 legend: |md
   ### Integration landscape
 
-  Generated from 12 integration
+  Generated from 13 integration
   records, grouped by accountable team.
 
   - **Red edge** — writes into the core
@@ -101,6 +101,11 @@ data_integrations.edi_gateway -> applications.meridian_erp: "EDI" {
   style.stroke: "#b3352b"
   style.stroke-width: 3
   style.bold: true
+}
+infrastructure.endpoint_management -> data_integrations.enterprise_data_warehouse: "API (REST)" {
+  style.stroke: "#5a6b7c"
+  style.stroke-width: 2
+  style.stroke-dash: 3
 }
 data_integrations.enterprise_data_warehouse -> data_integrations.business_intelligence: "Database Link" {
   style.stroke: "#5a6b7c"

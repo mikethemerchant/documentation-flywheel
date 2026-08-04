@@ -110,10 +110,10 @@ surfaced in the **portfolio** live in
 
 | Gap | Status |
 |---|---|
-| **No agreed boundary for plant systems.** Whether the millwork plant's systems sit inside the corporate perimeter or the plant one has never been decided, so patching accountability for the historian is contested. | Open — insight 7 |
+| **No agreed boundary for plant systems.** Whether the millwork plant's systems sit inside the corporate perimeter or the plant one has never been decided, so patching accountability for the historian is contested. **It is not a disagreement about the answer** — both leads describe the same way of settling it and cost it at an afternoon's work. It is open because nobody owns the afternoon. | Open — insight 7 and 12, Q-007. Escalated to Dana Whitfield 2026-08-04 as an assignment rather than an architecture question |
 | **Departmental purchasing is not in the approval path.** Software bought on a business card arrives in production without touching IT. At least one application in the inventory got in this way. | Open — insight 1; see [decision-rights.md](decision-rights.md) |
 | **No retirement authority.** Nothing in the process says who is allowed to set a retirement date, so nothing gets one. | Open — insight 4 |
-| **Recovery targets are aspirational.** RTO and RPO values are recorded and have never been tested end to end. They are intentions, and should be read that way. | Open |
+| **Recovery targets are aspirational.** RTO and RPO values are recorded and have never been tested end to end. They are intentions, and should be read that way. **Confirmed 2026-08-04** by the person who holds the numbers: every value came from a contract or a vendor commitment, and the only test anyone can recall was a partial one on an ERP that no longer exists. The numbers stand — they are the commitment — but nothing in the records distinguishes them from measured ones. | Open — insight 13, Q-023. Was an unattributed assertion until the [infrastructure catchup](../evidence/meetings/2026-08-04-infrastructure-catchup.md) |
 | **Tiering is per application, not per path.** A Tier 2 system sits synchronously inside a Tier 1 transaction. The model cannot currently express that. | Open — insight 6 |
 
 ---

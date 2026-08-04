@@ -1,85 +1,75 @@
 # Interview Brief — Tom Bergstrom
 
-**Prepared:** 2026-08-04, from [question-register.md](../question-register.md)
+**Prepared:** 2026-08-04, refreshed after the
+[infrastructure catchup](../meetings/2026-08-04-infrastructure-catchup.md)
 **For:** DR review, quarterly — next in September
-**Status:** Ready — but the meeting is six weeks out; see *scheduling risk* below
-**Open questions on this brief:** 5 (Q-007, Q-009, Q-013, Q-017, Q-018)
+**Status:** Ready, and much shorter than it was
+**Open questions on this brief:** 3 (Q-018, Q-024, and Q-007 as a party rather than an owner)
 
 > Fictional, like everything else in this repository.
 
 ---
 
+## What changed
+
+Marcus caught him for seven minutes on 2026-08-04 and closed three of the five
+questions that were on this brief. **Q-009, Q-013, and Q-017 are answered and
+have dropped off.**
+
+That was this brief working as designed. The previous version said Q-009 and
+Q-013 were thirty-second questions that did not need a DR review and should be
+asked in any conversation he was already in — and that is exactly how they got
+answered, six weeks before the meeting they were prepped for. Worth keeping in
+mind when the next brief is written: separating the questions that need a
+meeting from the questions that need thirty seconds is most of the value.
+
+**Q-007 has moved off him.** He has stated his position twice now, it has not
+changed, and the blocker turned out not to be his to clear. It is Dana's —
+see [dana-whitfield.md](dana-whitfield.md). Do not ask him for his position a
+third time.
+
 ## Why Tom
 
-He is named as recovery owner on eleven of the seventeen applications, which is
-itself one of the findings. He holds the contractual recovery numbers, and he
-is one half of the plant boundary dispute that is currently blocking two other
-questions.
+Still recovery owner on eleven of seventeen applications, which is still one of
+the findings. What is left for him is the shared-fate question and the shape of
+the integration graph he can see and Sofia cannot.
 
 ## How he thinks
 
 Recovery windows and blast radius. Every question becomes "how long until it's
 back, and what else goes with it".
 
-**He is careful about the difference between a number in an agreement and a
-number that has been tested, and will correct you every time you blur it.**
-That is exactly the distinction Q-017 is chasing, so lean into it rather than
-around it. His corrections usually arrive as a question; that is agreement, not
-pushback.
+The August conversation confirmed the framing note that was already here: he is
+exact about the difference between a number in an agreement and a number that
+has been measured, and volunteered the sharper version of it unprompted —
+*"it worries me more that they're written down in a way that looks like they've
+been proven."* Ask him a precision question and you get a precise answer.
 
 ---
 
 ## The questions
 
-### 1 — Q-017 · Have any recovery targets actually been tested?
+### 1 — Q-024 · What else bypasses the integration platform?
 
-> *"Every application record carries an RTO and an RPO. How many of those
-> numbers has anyone actually proven, versus how many came out of a contract
-> when we moved the ERP to vendor hosting?"*
+> *"The endpoint tool has been pushing into the warehouse every night since we
+> put it in and it wasn't written down anywhere. What else goes straight across
+> like that? Anything vendor-to-vendor, anything you set up that never went
+> through Sofia?"*
 
-**Why it matters.** `context/organization.md` states that the targets are
-aspirational, and that claim currently rests on nobody having contradicted it.
-If it is true, it should be visible in the records rather than in a paragraph
-of prose that only someone reading context files will find.
+**Why it matters.** This is the direct consequence of Q-013 and the most
+valuable question on the brief. Sofia sees everything that transits the
+integration platform, which means the flows that *do not* transit it have no
+natural observer. One turned up by accident. The question is whether it was the
+only one.
 
-**A good answer** is a split — these were tested, these were not, this one we
-tested two years ago and the system has changed since. Anything that lets us
-mark the difference.
+**A good answer** is a list, or a confident "that's the only one" with a reason
+attached. *"I'd have to think"* is also a good answer — leave it with him.
 
-**Watch for:** he may have tested things that were never written down. That is
-the best possible outcome and the least likely to be volunteered.
+**Ask it as a memory question, not an audit question.** *"What did you set up
+that never needed Sofia?"* gets an answer; *"what's missing from our
+integration records"* gets a shrug.
 
-### 2 — Q-007 · Where does the plant boundary sit?
-
-> *"Is the historian inside the plant network or the corporate one? Ken thinks
-> it's yours; I want to hear your version before I put anything in writing."*
-
-**Why it matters.** It decides who patches it, and it is blocking Q-008 (who is
-the SME) and shaping Q-009 (where it runs). It has been contested since March
-and neither side has moved. Insight 7.
-
-**A good answer** is not necessarily a resolution — it is a clear statement of
-his position and, more usefully, *what would settle it*. Ask that explicitly if
-he does not offer it: **"what would have to happen for this to be decided?"**
-
-**Handle with care.** This is a live disagreement between two team leads. Take
-his version down as his version, not as the answer, and put the same question
-to Ken. Do not present Ken's position as settled.
-
-### 3 — Q-009 · Where does the Plant Historian actually run?
-
-> *"Separately from who owns it — is there a physical box on the plant floor,
-> is it in the DC, is it a vendor appliance? `hosting` is TBD and has been since
-> the record was created."*
-
-**Why it matters.** It is the easiest of the historian questions and may not
-actually be blocked on the boundary dispute. Worth asking even if Q-007 goes
-nowhere, because a hosting answer narrows who could plausibly own it.
-
-**A good answer** is one of the schema's `hosting` values, or a clear statement
-that it is genuinely more than one thing.
-
-### 4 — Q-018 · Does the model need a way to express shared fate?
+### 2 — Q-018 · Does the model need a way to express shared fate?
 
 > *"The DR plan treats the ERP and the WMS as independent systems. They're the
 > same vendor in the same tenancy. If Meridian has a bad afternoon, how many of
@@ -89,22 +79,28 @@ that it is genuinely more than one thing.
 share a fate", so the only place it is visible is by reading `by-vendor.md`
 carefully and noticing.
 
+**This was on the previous brief and was not asked** — the August conversation
+ran out of time at seven minutes. It is genuinely a DR-review question rather
+than a corridor one, so it can wait for September without cost.
+
 **A good answer** tells us whether the DR plan should treat them as one
 recovery unit — which is a bigger change than a schema field and probably needs
 a decision record.
 
 **This is Sofia's question too.** Whoever gets asked first closes it.
 
-### 5 — Q-013 · Is Endpoint Management genuinely standalone?
+### 3 — Q-023 · Recovery-target provenance *(consulted, not owner)*
 
-> *"It shows up with no integration records. Is that right, or is it talking to
-> something we haven't written down — the IdP, an inventory feed, anything?"*
+Dana approves anything touching RTO and RPO, so the decision is hers. Tom's
+input is what a useful distinction would actually look like:
 
-**Why it matters.** Small, and the kind of thing that turns out not to be true.
-Bundled here because it costs thirty seconds in a meeting that is already
-happening.
+> *"If we're going to mark which recovery numbers have been tested and which
+> haven't — what would you want the tested ones to say? Date last proven?
+> Method? Or is a flag enough?"*
 
-**A good answer** is yes or no. If no, it is a new integration record.
+**A good answer** is the minimum that would stop the numbers reading as
+verified. He has already made the argument; this is asking him to specify the
+fix.
 
 ---
 
@@ -113,7 +109,8 @@ happening.
 - Q-020 is Dana's question, but Tom is the person it is about as much as
   anyone: what happens to eleven recovery-owner assignments when he is on
   leave? Ask it as a practical question, not a succession-planning one.
-- Whether the ERP's contractual RTO has ever been invoked.
+- Whether the ERP's contractual RTO has ever been invoked. Sharper now that we
+  know none of them have been tested.
 
 ---
 
@@ -121,34 +118,38 @@ happening.
 
 | Who | For | Ask |
 |---|---|---|
-| Plant controls engineer or plant manager | Q-007, and the historian's owner | *"Who on the plant side would I talk to about the historian? I don't need the org chart, just a name."* |
 | Meridian account manager | Q-018, shared tenancy | *"Who's our contact at Meridian? I want to ask them directly whether the ERP and WMS sit in the same tenancy."* |
 
-The first of these has been asked once already and produced no name. If it
-comes up empty again, that is worth recording as its own finding — a system
-nobody on either side can name a contact for.
+**The plant contact has been removed from this brief.** It has been on it for
+two rounds and asked in neither, and the boundary question no longer depends on
+finding that person — it depends on Dana assigning someone an afternoon. The
+row stays in the register's people-to-identify table, where the fact that it
+keeps going unasked is now recorded.
 
 ---
 
 ## Do not ask
 
+- **Where the historian runs.** Answered 2026-08-04 — on-prem, a physical
+  appliance in the plant electrical room. He has stood next to it.
+- **Whether the plant boundary is settled.** He has given his position twice.
+  Asking a third time tells him the last two conversations went nowhere, which
+  they did not.
+- **Whether Endpoint Management has integrations.** Answered and recorded.
+- **Whether recovery targets have been tested.** Answered — none of them. The
+  live question is what to do about the records, which is Q-023 and Dana's.
 - **What the ERP's RTO and RPO are.** Recorded, four hours and fifteen minutes.
-  The live question is whether they have been tested (Q-017), which is a
-  different question and he will notice the difference.
-- **Whether the WMS queue holds during an outage.** Answered and recorded in
-  the failover behaviour notes.
+- **Whether the WMS queue holds during an outage.** Answered and recorded.
 - **Who owns hosting.** He does.
 
 ---
 
-## Scheduling risk
+## Scheduling
 
-The DR review is six weeks out, and five open questions is a long time to wait
-— two of them are blocking other rows. **Q-009 and Q-013 are both
-thirty-second questions** and do not need a DR review; ask them at any point
-where he is already in a conversation. If the boundary dispute is still open in
-two weeks, Q-007 probably deserves its own short conversation with Ken present,
-which is the one case in this process where scheduling a meeting is justified.
+No longer urgent. Three questions, none blocking another row, and the two that
+matter are genuinely DR-review shaped. **September is fine** — which is a change
+from the previous version of this brief, where five questions and a six-week
+wait was the main risk on it.
 
 ---
 
