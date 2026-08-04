@@ -100,4 +100,4 @@ The single most important distinction in the repo. Editing a generated file wast
 
 ---
 
-*Last updated: 2026-08-03*
+*Last updated: 2026-08-04*

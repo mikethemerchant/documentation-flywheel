@@ -83,8 +83,8 @@ AI working sessions are recorded in `evidence/meetings/` with an `-ai` suffix. A
 
 | Date | File | Topics Covered |
 |---|---|---|
-| 2026-08-03 | [`2026-08-03-repo-bootstrap-ai.md`](../evidence/meetings/2026-08-03-repo-bootstrap-ai.md) | Initial repo seeding — schema, 17 app and 12 integration records, both automation scripts, generated landscape diagram, CI workflows |
+| 2026-08-04 | [`2026-08-04-repo-bootstrap-ai.md`](../evidence/meetings/2026-08-04-repo-bootstrap-ai.md) | Initial repo seeding — schema, 17 app and 12 integration records, both automation scripts, generated landscape diagram, CI workflows. Addenda: first push, GitHub Actions setup, and pinning D2 output with a fixed salt |
 
 ---
 
-*Last updated: 2026-08-03*
+*Last updated: 2026-08-04*

@@ -1,6 +1,6 @@
 # Repository Bootstrap — AI Session
 
-**Date:** 2026-08-03
+**Date:** 2026-08-04
 **Type:** AI working session (no human participants beyond the reviewer)
 **Reviewer:** Michael Bender
 
@@ -91,12 +91,63 @@ at rather than tidying away.
 
 | # | Item | Owner | Status |
 |---|---|---|---|
-| 1 | Publishing safety sweep before the repository goes public | Michael Bender | Open |
+| 1 | Publishing safety sweep | Michael Bender | Open — repository was published before this ran |
 | 2 | Non-technical review pass | Michael Bender | Open |
 | 3 | Video scrub checklist | Michael Bender | Open |
-| 4 | Push `main` and set it as the default branch on the remote | Michael Bender | Open |
+| 4 | Push `main` and set it as the default branch on the remote | Michael Bender | Pushed; default branch still `master` |
 | 5 | Write the example transcripts and their summaries | Next session | Open |
 | 6 | Decide whether an SSO trust belongs in the integration model, and record it as a decision | Next session | Open |
+| 7 | Delete the `master` branch once the default has moved to `main` | Michael Bender | Open |
+
+---
+
+## Addenda — first push, same day
+
+Recorded after the session above, because the pipeline's first real run
+disproved one of its conclusions.
+
+### The seed kit lives outside the repository
+
+`EXAMPLES.md` (the dataset design — portfolio table, integration table, the
+people roster, and the specification of which gaps are deliberate) and the
+original bootstrap prompt were moved to **`c:\repos\documentation-flywheel-seed\`**.
+Neither ships. `EXAMPLES.md` is the reference to reach for when extending the
+dataset.
+
+### GitHub Actions setup, confirmed rather than predicted
+
+- **Settings → Actions → General → Workflow permissions must be "Read and
+  write."** The `permissions: contents: write` block in `render.yml` can only
+  narrow what the repository already allows; it cannot grant it. Without the
+  repository setting, the render job runs green through every step and then
+  fails with a 403 on the push.
+- The branch rename left the local branch tracking `refs/heads/master`.
+  `git branch -m` preserves the old upstream, so a plain `git push` silently
+  pushed to `master` and **no workflow fired at all** — both triggers are
+  `main`-only.
+- `validate.yml` runs on pull requests but does not block merges until the
+  check is marked required in branch protection, and it only becomes selectable
+  there after it has run once.
+- **Do not require pull requests on `main`.** `render.yml` pushes generated
+  output straight to the branch with `GITHUB_TOKEN`; that rule blocks the bot
+  and the job 403s at the final step.
+
+### The pipeline caught derived-file drift on its first run
+
+The first render on `main` committed back a 284-line SVG diff. Every markdown
+view and the `.d2` source were byte-identical and the diagram geometry matched
+exactly — the `viewBox` was the same to the pixel. The only difference was the
+CSS class name D2 generates to scope each SVG, which is derived per-platform.
+
+Left alone, every push to `main` would have rewritten that SVG, which is
+precisely the drift this repository claims to prevent. Fixed by rendering with
+`--salt documentation-flywheel` everywhere; the salt must never change, because
+changing it rewrites every SVG at once.
+
+Worth keeping as a story rather than just a fix: the verification step existed
+to catch a half-rendered catalog, and what it actually caught was the pipeline
+disagreeing with a contributor's laptop about a file neither of them had
+edited.
 
 ---
 

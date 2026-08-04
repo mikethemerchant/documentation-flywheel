@@ -74,4 +74,4 @@ If yes — add a row with category, a one-line insight, and the source. This reg
 
 ---
 
-*Last updated: 2026-08-03*
+*Last updated: 2026-08-04*
